@@ -1,0 +1,50 @@
+
+.icons ul {
+    margin: 0px;;
+    padding:0px;
+    list-style:none outside none;
+}
+.icons ul li {
+    display: inline-block;
+    margin: 0 20px 0px 0px;
+    vertical-align: top;
+    width: 80px;
+    text-align:center;
+}
+.icons ul li a {
+    border: 1px solid #BBBBBB;
+    background:#fff url('../img/bg_fade_sml_reverse.png') repeat-x bottom left;
+    display: block;
+    padding: 5px;
+    min-height: 61px;
+    text-decoration:none;
+    border-radius: 5px 5px 5px 5px;
+}
+.icons ul li a:hover {
+     box-shadow:1px 1px 8px #CCCCCC;
+    border: 1px solid #999;
+}
+.icons ul li a span {
+    color: #333333;
+    display: block;
+    font: 11px Tahoma,sans-serif;
+}
+.icons ul li.disabled {
+    opacity:0.6;
+}
+.icons ul li.disabled a, .icons ul li.disabled a:hover{
+    cursor:text;
+    background:#fff;
+    box-shadow: 0 0 15px #F4F4F4 inset;
+}
+.icons ul li.disabled a span {
+    color:#c0c0c0;
+}
+.icons .dwarrow {
+    font-size: 18px;
+    line-height:73px;
+    font-weight: normal;
+    padding-left:20px;
+    letter-spacing: -1px !important;
+    background: url('../img/fugue/arrow-turn-270-left.png') no-repeat center left;
+}

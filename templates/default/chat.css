@@ -1,0 +1,75 @@
+,/*
+chat stylesheet
+by Hostbill
+*/
+#chat {
+	position:relative;
+}
+#nonclient {
+	background:#000000;
+	position:absolute;
+	top:0px;
+	left:0px;
+	text-align:center;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+
+#chatwindow {
+
+	height:400px;
+	background:#ffffff;
+	border:1px solid #CCCCCC;
+	
+	overflow:auto;
+	
+	
+}
+#chatwindow .messages {
+padding:6px;
+}
+
+#messagebox {
+	background:#E5E5E5 url(img/bg_wbox_header.gif) repeat-x scroll left top;
+	padding:6px;
+	border:1px solid #CCCCCC;
+	border-top:none;
+	-webkit-border-bottom-left-radius:6px;
+-webkit-border-bottom-right-radius:6px;
+-moz-border-radius-bottomleft:6px;
+-moz-border-radius-bottomright:6px;
+}
+#messagebox textarea {
+	width:99%;height:50px;
+	border:solid 1px #59A7FF;
+	margin:1px;
+	
+}
+#messagebox textarea:focus {
+	margin:0px;
+	border:solid 2px #f9982f;
+}
+.message span {
+margin-right:6px;
+font-weight:bold;
+}
+.Client span{
+	color:#6cb000;
+}
+.Client {
+	color:#565656;
+}
+.Status {
+	font-size:10px;
+	color:#999999;
+}
+.Admin span{
+	color:#0076e4;
+}
+.error {
+	border:solid 1px #ff0000 !important;
+	background:#ffebeb !important;
+}
+#sound {
+	visibility:hidden;
+}

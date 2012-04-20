@@ -1,0 +1,49 @@
+
+.icons ul {
+    margin: 10px 0px 10px;
+    padding:0px;
+    list-style:none outside none;
+}
+.icons ul li {
+    display: inline-block;
+    margin: 0 20px 20px 0;
+    vertical-align: top;
+    width: 80px;
+    text-align:center;
+}
+.icons ul li a {
+    border: 1px solid #F1F1F1;
+    display: block;
+    padding: 5px;
+    min-height: 61px;
+    text-decoration:none;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 15px #F4F4F4 inset;
+}
+.icons ul li a:hover {
+     border: 1px solid #AAA;
+}
+.icons ul li a span {
+    color: #333333;
+    display: block;
+    font: 11px Tahoma,sans-serif;
+}
+.icons ul li.disabled {
+    opacity:0.6;
+}
+.icons ul li.disabled a, .icons ul li.disabled a:hover{
+    border: 1px solid #F1F1F1;
+    background:#EEEEEE;
+    cursor:text;
+}
+.icons ul li.disabled a span {
+    color:#c0c0c0;
+}
+.icons .dwarrow {
+    padding:35px 25px 15px;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: -1px !important;
+    line-height: 20px;
+    background: url('icons/arrow-turn-270-left.png') no-repeat 5px 43px;
+}
