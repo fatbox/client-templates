@@ -1549,7 +1549,7 @@ ul.subside {
     clear: both;
     color: #BBBBBB;
     float: left;
-    height: 28px;
+    min-height: 28px;
     padding-left: 16px;
     text-decoration: none;
     display:block;
@@ -1573,6 +1573,14 @@ ul.subside {
     color:#555555;
     padding: 7px 10px 7px 0px;
     text-shadow: 1px 1px 0 #FFFFFF;
+    white-space: nowrap;
+    width: 190px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+.left-content ul.leftmenu li  a.no-restriction span{
+    white-space: normal;
+    width: auto;
 }
 .left-content ul.leftmenu li  a  span img {
     margin-right:7px;

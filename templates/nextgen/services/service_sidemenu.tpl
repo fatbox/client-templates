@@ -44,7 +44,7 @@
     {if $enableFeatures.dnsmanagement!='off' && $dnsmodule_id}<li><a href="{$ca_url}module&amp;module={$dnsmodule_id}"><span>{$lang.mydns}</span></a></li>{/if}
  
     {foreach from=$haveaddons item=newaddon}
-        <li><a href="{$ca_url}cart&amp;action=add&amp;cat_id=addons&amp;id={$newaddon.id}&amp;account_id={$service.id}&amp;addon_cycles[{$newaddon.id}]={$newaddon.paytype}"><span class="plus">{$lang.Add} {$newaddon.name}</span></a></li>
+        <li><a class="no-restriction" href="{$ca_url}cart&amp;action=add&amp;cat_id=addons&amp;id={$newaddon.id}&amp;account_id={$service.id}&amp;addon_cycles[{$newaddon.id}]={$newaddon.paytype}"><span class="plus">{$lang.Add} {$newaddon.name}</span></a></li>
     {/foreach}
 
     {if $service.status!='Terminated' && $service.status!='Cancelled'}<li class="last"><a href="{$ca_url}clientarea&action=services&service={$service.id}&cid={$service.category_id}&cancel" style="color:red"><span class="cancel">{$lang.cancelrequest}</span></a></li>{/if}
