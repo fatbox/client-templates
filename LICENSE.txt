@@ -1,0 +1,8 @@
+All files in this repository, except of public available libraries like Twitter Bootstrap, jQuery etc, 
+are integral part of HostBill software, and are licensed under its commercial license. 
+Files here are added for informational use only.
+
+Full license text can be downloaded from http://hostbillapp.com
+
+Copyright (c) 2012 - Quality Software. All Rights Reserved.
+
