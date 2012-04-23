@@ -140,6 +140,9 @@
             }
         });
     },200);
+    {/literal}
+    Date.format = '{$js_date}';
+    {literal}
     var picker = false;
     function check_i(element) {
         var td = $(element).parent();

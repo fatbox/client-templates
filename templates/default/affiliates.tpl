@@ -302,6 +302,9 @@
                 });
             },200);
             var picker = false;
+            {/literal}
+            Date.format = '{$js_date}';
+            {literal}
             function check_i(element) {
                 var td = $(element).parent();
                 if ($(element).is(':checked'))
