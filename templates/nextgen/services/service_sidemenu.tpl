@@ -6,7 +6,7 @@
     {if $service.status=='Active'}
         {foreach from=$widgets item=widg}
         <li {if $widget.name==$widg.name}class="current"{/if}><a  href="{$ca_url}clientarea/services/{$service.slug}/{$service.id}/&widget={$widg.name}{if $widg.id}&wid={$widg.id}{/if}"><span class="{$widg.name}">
-                    <img src="{$system_url}{$widg.location}/small.png" alt="" />{if $lang[$widg.name]}{$lang[$widg.name]}{elseif $widg.fullname}{$widg.fullname}{else}{$widg.name}{/if}</span></a></li>
+                    <img src="{$system_url}{$widg.config.smallimg}" alt="" />{if $lang[$widg.name]}{$lang[$widg.name]}{elseif $widg.fullname}{$widg.fullname}{else}{$widg.name}{/if}</span></a></li>
         {/foreach}
     {/if}
 

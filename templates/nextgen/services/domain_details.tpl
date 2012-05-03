@@ -29,6 +29,23 @@
 
 
 {elseif $details}
+    {if ($details.status=='Pending' || $details.status=='Pending Registration' || $details.status=='Pending Transfer' || $details.status=='Active') && stristr($details.name, '.hu') }
+    <div class="wbox" style="display:none" id="huregistrar">
+        <div class="wbox_header">
+            {$lang.hu_formtitle}
+        </div>  
+        <div class="wbox_content">
+            <div class="tabb" style="padding:5px;border-bottom: 1px solid #DDDDDD;">
+                {$lang.hu_linkdescr} <a href="" id="hu_form_link" target="_blank">{$lang.hu_downloadform}</a>
+            </div>
+            <div style="padding:5px;">
+                <form style="padding:10px 0 0;"action="" method="POST" enctype="multipart/form-data" id="hu_upform" class="form-inline">
+                    <input type="file" name="signedform"> <input class="btn btn-primary" type="submit" value="{$lang.hu_sendform}" style="vertical-align: bottom">
+                </form>
+            </div>
+        </div>
+    </div>
+    {/if}
 <div class="row flex-container bordered-section">
 
     <div class="span3 left-content flex-box-1">
