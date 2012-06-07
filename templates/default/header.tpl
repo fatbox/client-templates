@@ -10,9 +10,7 @@
 <script type="text/javascript" src="{$system_url}?cmd=hbchat&amp;action=embed"></script>
 <!-- part below is not css valid. remove it if you want this document to be css valid -->
 <link media="all" type="text/css" rel="stylesheet" href="{$template_dir}corners.css" />
-{foreach from=$HBaddons.header_js item=module}
-	{$module}
-{/foreach}
+ {userheader}
 </head>
 
 <body class="{$language|capitalize}">

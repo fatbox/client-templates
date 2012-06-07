@@ -58,7 +58,7 @@ Clientarea dashboard - summary of owned services, due invoices, opened tickets
                         <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> {$lang.paynowdueinvoices}</button>{securitytoken}</form>
                 </div>
             </div>
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="table table-stripped fullscreen">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="table table-striped fullscreen">
 
                 <tbody>
                     <tr>
@@ -93,7 +93,7 @@ Clientarea dashboard - summary of owned services, due invoices, opened tickets
                     <a class="btn" href="{$ca_url}tickets/" > {$lang.viewalltickets}</a>
                 </div>
             </div>
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="table table-stripped fullscreen">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="table table-striped fullscreen">
                 <tbody>
                     <tr>
 

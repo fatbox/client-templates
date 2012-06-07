@@ -19,8 +19,7 @@
         <script type="text/javascript" src="{$template_dir}js/common.js"></script>
         <script type="text/javascript" src="{$template_dir}js/jquery-ui-1.8.2.custom.min.js"></script>
         <script type="text/javascript" src="{$system_url}?cmd=hbchat&amp;action=embed"></script>
-        {foreach from=$HBaddons.header_js item=module}{$module}
-        {/foreach}
+        {userheader}
     </head>
 
     <body class="{$language|capitalize} tpl_nextgen" >

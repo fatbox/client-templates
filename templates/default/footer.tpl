@@ -3,6 +3,6 @@
 		</div>
 	</div>
 </div>
-
+{userfooter}
 </body>
 </html>
