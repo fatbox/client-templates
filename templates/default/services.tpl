@@ -43,7 +43,9 @@
         </div>
         <div class="wbox_content">
             <table width="100%" cellspacing="0" cellpadding="0" border="0" class="checker">
-
+  {if $custom_clientarea}
+             {include file=$custom_clientarea}
+        {/if}
 	  {if $service.isvps && !$service.isvpstpl}
 {if $service.bw_limit!='0'}
                 <tr class="even">

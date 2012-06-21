@@ -54,14 +54,19 @@
             {include file=$widget.appendtpl}
         </div>
         {else}
+      
         {include file='services/service_billing2.tpl'}
+
+          {if $custom_clientarea}
+             {include file=$custom_clientarea}
+        {/if}
 
         {if $service.isvpstpl  }
 
         {include file="services/services.vps.tpl"}
 
 	  {elseif $service.isvps && !$service.isvpstpl}
-        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table table-striped">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table table-striped fullscreen">
 
             {if $service.bw_limit!='0'}
             <tr class="even">
@@ -86,12 +91,12 @@
             </tr>   {/if}
 
             <tr class="even">
-                <td align="right">{$lang.ipadd}</td>
+                <td align="right" width="160"><strong>{$lang.ipadd}</strong></td>
                 <td>{if $service.vpsip}{$service.vpsip}{else}{$service.ip}{/if}</td>
             </tr>
             {if $service.additional_ip}
             <tr>
-                <td align="right" valign="top">{$lang.additionalip}</td>
+                <td align="right" valign="top"  width="160"><strong>{$lang.additionalip}</strong></td>
                 <td>{foreach from=$service.additional_ip item=ip}{$ip}<br />{/foreach}</td>
             </tr>
             {/if}
