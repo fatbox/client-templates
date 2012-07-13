@@ -229,7 +229,7 @@ $(document).ready(function(){
         $('#updater').addLoader();
         $('#checkall').attr('checked',false);
         var pushs='';
-        if ($(this).hasAttribute('queue'))
+        if ($(this).attr('queue'))
             pushs='push';
         ajax_update($('#currentlist').attr('href')+'&'+$('#testform').serialize()+'&'+$(this).attr('name'),{
             layer:'ajax',

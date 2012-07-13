@@ -33,16 +33,33 @@
                     </td>
                 </tr>
                 
-                {if !$clientdata.firstname}<tr>
+                {if !$clientdata.firstname}
+                <tr>
                     <td width="300">
                         <label>{$lang.name}</label>
                         <input name="client_name" value="{$submit.client_name}" class="styled"/>
                     </td>
-                <td >
+                    <td >
                         <label>{$lang.email}</label>
                         <input name="client_email" value="{$submit.client_email}" class="styled"/>
                     </td>
-                </tr>{/if}
+                </tr>
+                {else}
+                <tr>
+                    {foreach from=$depts item=dept name=loop}
+                        {if $dept.options & 64}
+                    <td id="p{$dept.id}" class="dptpriority" {if ($submit && $submit.dept_id!=$dept.id) || ( !$submit && !$smarty.foreach.loop.first)}style="display: none"{/if} width="300">
+                        <label>{$lang.priority}</label>
+                        <select {if ($submit && $submit.dept_id!=$dept.id) || ( !$submit && !$smarty.foreach.loop.first)}disabled="disabled"{/if} name="priority" style="float:left; margin-right:10px;">
+                        <option {if $submit.priority==0}selected="selected"{/if} value="0" >{$lang.low}</option>
+                        <option {if $submit.priority==1}selected="selected"{/if} value="1" >{$lang.medium}</option>
+                        <option {if $submit.priority==2}selected="selected"{/if} value="2" >{$lang.high}</option>
+                        </select>
+                    </td>
+                        {/if}
+                    {/foreach}
+                </tr>
+                {/if}
                 
                 <tr  class="even">
                     <td colspan="2">
@@ -104,6 +121,8 @@
 
         $('.deptsdesc').find('div').hide();
         $('#d'+items).show();
+        $('.dptpriority').hide().find('select').attr('disabled','disabled');
+        $('#p'+items).show().find('select').removeAttr('disabled');
     }
      function addAnother(el) {
                     $(el).after('<br/><input type="file" size="50" name="attachments[]"/>');

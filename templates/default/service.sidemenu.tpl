@@ -18,9 +18,9 @@
 			
 			{if $service.status=='Active' }	<li><a  href="#" onclick="$('#billing_info').toggle();return false;"><strong>{$lang.billing_info|capitalize}</strong></a></li>
 
-                            {foreach from=$widgets item=widg}
-                                <li><a  href="{$ca_url}clientarea/services/{$service.slug}/{$service.id}/&widget={$widg.name}{if $widg.id}&wid={$widg.id}{/if}">{if $lang[$widg.name]}{$lang[$widg.name]}{elseif $widg.fullname}{$widg.fullname}{else}{$widg.name}{/if}</a></li>
-                            {/foreach}
+                    {foreach from=$widgets item=widg}
+                        <li><a  href="{$ca_url}clientarea/services/{$service.slug}/{$service.id}/&widget={$widg.name}{if $widg.id}&wid={$widg.id}{/if}">{assign var=widg_name value="`$widg.name`_widget"}{if $lang[$widg_name]}{$lang[$widg_name]}{elseif $lang[$widg.name]}{$lang[$widg.name]}{elseif $widg.fullname}{$widg.fullname}{else}{$widg.name}{/if}</a></li>
+                    {/foreach}
                 {/if}
 			
 			{if $service.isvpstpl && $service.status=='Active'}<li><a class="tchoice" href="#">{$lang.summary}</a></li>{/if}

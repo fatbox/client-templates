@@ -559,6 +559,9 @@ Root page
     text-decoration: none;
 }
 
+.bordered-section .searchform {
+padding: 16px 19px;
+}
 
 .bordered-section {
     border:1px solid #CCCCCC;
@@ -1949,7 +1952,8 @@ Below are patches for default HostBIll orderpages
     font-weight: bold;
     text-align: right;
 }
-#cart .table td[align=right], #cart .table th[align=right] {
+#cart .table td[align=right], #cart .table th[align=right],
+#upgrade .table td[align=right], #upgrade .table th[align=right] {
     text-align:right;
 }
 #cart .table td[align=center], #cart .table th[align=center] {

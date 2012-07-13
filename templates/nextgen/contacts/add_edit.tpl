@@ -27,7 +27,7 @@ Add and/or edit contact
         <span><b>{$lang.premadepriv}</b></span>
         <a href="0" onclick="return loadProfile($(this).attr('rel'))" rel="{$p.file}" class="label label-info">{$lang.none}</a>
         {foreach from=$premade item=p}
-        <a href="#" rel="{$p.file}" onclick="return loadProfile($(this).attr('rel'))" class="label label-info">{$p.name}</a>
+        <a href="#" rel="{$p.file}" onclick="return loadProfile($(this).attr('rel'))" class="label label-info">{if $lang[$p.lang]}{$lang[$p.lang]}{else}{$p.name}{/if}</a>
         {/foreach}
 
         <div class="clear"></div>
@@ -155,7 +155,7 @@ Add and/or edit contact
                         {foreach from=$o.widgets item=w name=wl}
                         {if $smarty.foreach.wl.index%3=='0'}<tr>{/if}
                             <td width="33%">
-                                <input type="checkbox" class="privilege s{$o.id} services" id="services_{$o.id}_{$w.name}" value="1" name="privileges[services][{$o.id}][{$w.name}]" {if $submit.privileges.services[$o.id][$w.name]}checked="checked"{/if}/> <span for="services_{$o.id}_{$w.name}">{if $lang[$w.name]}{$lang[$w.name]}{elseif $w.fullname}{$w.fullname}{else}{$w.name}{/if}</span>
+                                <input type="checkbox" class="privilege s{$o.id} services" id="services_{$o.id}_{$w.name}" value="1" name="privileges[services][{$o.id}][{$w.name}]" {if $submit.privileges.services[$o.id][$w.name]}checked="checked"{/if}/> <span for="services_{$o.id}_{$w.name}">{assign var=widg_name value="`$w.name`_widget"}{if $lang[$widg_name]}{$lang[$widg_name]}{elseif $lang[$w.name]}{$lang[$w.name]}{elseif $w.fullname}{$w.fullname}{else}{$w.name}{/if}</span>
                             </td>
                             {if $smarty.foreach.wl.index%3=='5'}</tr>{/if}
                         {/foreach}
@@ -187,7 +187,7 @@ Add and/or edit contact
                         {foreach from=$o.widgets item=w name=wl}
                         {if $smarty.foreach.wl.index%3=='0'}<tr>{/if}
                             <td width="33%">
-                                <input type="checkbox" class="privilege d{$o.id} domains" id="domains_{$o.id}_{$w.name}" value="1" name="privileges[domains][{$o.id}][{$w.name}]" {if $submit.privileges.domains[$o.id][$w.name]}checked="checked"{/if}/> <span for="domains_{$o.id}_{$w.name}">{if $lang[$w.name]}{$lang[$w.name]}{elseif $w.fullname}{$w.fullname}{else}{$w.name}{/if}</span>
+                                <input type="checkbox" class="privilege d{$o.id} domains" id="domains_{$o.id}_{$w.name}" value="1" name="privileges[domains][{$o.id}][{$w.name}]" {if $submit.privileges.domains[$o.id][$w.name]}checked="checked"{/if}/> <span for="domains_{$o.id}_{$w.name}">{assign var=widg_name value="`$w.name`_widget"}{if $lang[$widg_name]}{$lang[$widg_name]}{elseif $lang[$w.name]}{$lang[$w.name]}{elseif $w.fullname}{$w.fullname}{else}{$w.name}{/if}</span>
                             </td>
                             {if $smarty.foreach.wl.index%3=='5'}</tr>{/if}
                         {/foreach}

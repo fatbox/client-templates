@@ -64,7 +64,13 @@
                 {foreach from=$widgets item=widg name=cst}{if $widg.name!='reglock' && $widg.name!='nameservers'  && $widg.name!='autorenew' } {if $widg.name=='idprotection' && $details.offerprotection && !$details.offerprotection.purchased}{continue}{/if}
                 <li {if $widget.name==$widg.name}class="current"{/if}><a  href="{$ca_url}clientarea/domains/{$details.id}/{$details.name}/&widget={$widg.name}{if $widg.id}&wid={$widg.id}{/if}#{$widg.name}">
                    <span class="{$widg.name}">
-                    <img src="{$system_url}{$widg.location}/small.png" alt="" />{if $widg.fullname}{$widg.fullname}{elseif $lang[$widg.name]}{$lang[$widg.name]}{else}{$widg.name}{/if}</span></a></li>
+                    <img src="{$system_url}{$widg.location}/small.png" alt="" />
+                    {assign var=widg_name value="`$widg.name`_widget"}
+                    {if $lang[$widg_name]}{$lang[$widg_name]}
+                    {elseif $lang[$widg.name]}{$lang[$widg.name]}
+                    {elseif $widg.fullname}{$widg.fullname}
+                    {else}{$widg.name}
+                    {/if}</span></a></li>
                 {/if}{/foreach}
                 {if $custom} {foreach from=$custom item=btn name=cst}
                 <li {if $smarty.foreach.cst.last}class="last"{/if}><a href="#" onclick="$('#cbtn_{$btn}').click();return false;">{$lang.$btn}</a> </li>
@@ -163,14 +169,32 @@
                     <h3>{$lang.reglock}:  <span class="vtip_description" title="{$lang.reglock_desc}"></span></h3>
                     {if $details.reglock=='1'}<span class="label label-Active">{$lang.On}</span>{else}<span class="label label-Expired">{$lang.Off}</span>{/if}
                     <span class="right"> {foreach from=$widgets item=widg name=cst}{if $widg.name=='reglock'}<img src="{$install_url}{$widg.config.smallimg}" alt="{$widg.name}" />
-                        <a  href="{$ca_url}clientarea/domains/{$details.id}/{$details.name}/&widget={$widg.name}#reglock">{assign var=widg_name value="`$widg.name`_widget"}{if $lang[$widg_name]}{$lang[$widg_name]}{elseif $lang[$widg.name]}{$lang[$widg.name]}{elseif $widg.fullname}{$widg.fullname}{else}{$widg.name}{/if}</a>{break}{/if}{/foreach}&nbsp;</span>
+                        <a  href="{$ca_url}clientarea/domains/{$details.id}/{$details.name}/&widget={$widg.name}#reglock">
+                            {assign var=widg_name value="`$widg.name`_widget"}
+                            {if $lang[$widg_name]}{$lang[$widg_name]}
+                            {elseif $lang[$widg.name]}{$lang[$widg.name]}
+                            {elseif $widg.fullname}{$widg.fullname}
+                            {else}{$widg.name}
+                            {/if}
+                        </a>{break}{/if}{/foreach}&nbsp;</span>
                     <span class="clear"></span>
                  </div>
                 {if !$details.not_renew}
                 <div class="span4 mb15">
                      <h3>{$lang.autorenew}:  <span class="vtip_description" title="{$lang.autorenew_desc}"></span></h3>
                     {if $details.autorenew=='1'}<span class="label label-Active">{$lang.On}</span>{else}<span class="label label-Expired">{$lang.Off}</span>{/if}
-                   <span class="right">  {foreach from=$widgets item=widg name=cst}{if $widg.name=='autorenew'}<img src="{$install_url}{$widg.config.smallimg}" alt="{$widg.name}" /> <a  href="{$ca_url}clientarea/domains/{$details.id}/{$details.name}/&widget={$widg.name}#autorenew">{assign var=widg_name value="`$widg.name`_widget"}{if $lang[$widg_name]}{$lang[$widg_name]}{elseif $lang[$widg.name]}{$lang[$widg.name]}{elseif $widg.fullname}{$widg.fullname}{else}{$widg.name}{/if}</a>{break}{/if}{/foreach}&nbsp; </span>
+                   <span class="right">  
+                       {foreach from=$widgets item=widg name=cst}
+                           {if $widg.name=='autorenew'}<img src="{$install_url}{$widg.config.smallimg}" alt="{$widg.name}" /> 
+                               <a  href="{$ca_url}clientarea/domains/{$details.id}/{$details.name}/&widget={$widg.name}#autorenew">
+                                   {assign var=widg_name value="`$widg.name`_widget"}
+                                   {if $lang[$widg_name]}{$lang[$widg_name]}
+                                   {elseif $lang[$widg.name]}{$lang[$widg.name]}
+                                   {elseif $widg.fullname}{$widg.fullname}
+                                   {else}{$widg.name}
+                               {/if}</a>{break}
+                            {/if}
+                       {/foreach}&nbsp; </span>
                    <span class="clear"></span>
                 </div>
                 {/if}

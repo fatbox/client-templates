@@ -5,6 +5,8 @@ function switchdeptdesc(items) {
 
 	$('.deptsdesc').find('div').hide();
 	$('#d'+items).show();
+    $('.dptpriority').hide().find('select').attr('disabled','disabled');
+    $('#p'+items).show().find('select').removeAttr('disabled');
 }
 {/literal}
 </script>
@@ -17,7 +19,8 @@ function switchdeptdesc(items) {
   <input name="make" type="hidden" value="addticket" />
 <table width="100%" cellspacing="0"  border="0" class="checker">
             <tbody>
-           {if !$clientdata.firstname}<tr>
+           {if !$clientdata.firstname}
+               <tr>
                 <td width="160"  align="right">{$lang.name}</td>
                 <td>
                   <input name="client_name" value="{$submit.client_name}" class="styled"/>
@@ -28,7 +31,8 @@ function switchdeptdesc(items) {
                 <td>
                   <input name="client_email" value="{$submit.client_email}" class="styled"/>
                   </td>
-              </tr>{/if}
+              </tr>
+           {/if}
               <tr>
                 <td width="160"  align="right" valign="middle">{$lang.department}</td>
                 <td valign="middle"><select name="dept_id" onchange="switchdeptdesc(this.value)" style="float:left; margin-right:10px;">
@@ -52,6 +56,22 @@ function switchdeptdesc(items) {
                 <td align="right">{$lang.subject}</td>
                 <td><input type="text" value="{$submit.subject}" size="60" name="subject"  class="styled"/></td>
               </tr>
+              {if $clientdata}
+              {foreach from=$depts item=dept name=loop}
+                   {if $dept.options & 64}
+                       <tr id="p{$dept.id}" class="dptpriority" {if ($submit && $submit.dept_id!=$dept.id) || ( !$submit && !$smarty.foreach.loop.first)}style="display: none"{/if}>
+                           <td  align="right">{$lang.priority}</td>  
+                           <td >
+                               <select {if ($submit && $submit.dept_id!=$dept.id) || ( !$submit && !$smarty.foreach.loop.first)}disabled="disabled"{/if} name="priority" style="float:left; margin-right:10px;">
+                                   <option {if $submit.priority==0}selected="selected"{/if} value="0" >{$lang.low}</option>
+                                   <option {if $submit.priority==1}selected="selected"{/if} value="1" >{$lang.medium}</option>
+                                   <option {if $submit.priority==2}selected="selected"{/if} value="2" >{$lang.high}</option>
+                               </select>
+                           </td>  
+                       </tr>
+                   {/if}
+               {/foreach}
+               {/if}
               <tr>
                 <td colspan="2">
 				{$lang.message}<br />

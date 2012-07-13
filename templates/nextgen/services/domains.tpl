@@ -2,8 +2,15 @@
 {include file='services/domain_details.tpl'}
 {else}
 <div class="bordered-section article">
-    <h2 {if !$domains}class="bbottom"{/if}>{$lang.domains|capitalize}</h2>
-
+    <h2 class="{if !$domains}bbottom{/if} left">{$lang.domains|capitalize}</h2>
+    {if $domains}
+        <div class="right searchform form-horizontal">
+            <div class="input-append">
+                <form style="margin:0px" id="testform"><input type="text" size="16" name="filter[name]" class="span3" value="" placeholder="{$lang.filterdomains}" id="d_filter"  /><button type="button" class="btn submiter" style="display:none" name="resetfilter=1" id="r_filter"  onclick="$('#d_filter').val('');$('#r_filter').hide()">{$lang.Reset}</button><button onclick="$('#r_filter').show()" type="submit" class="submiter btn btn-success"><i class="icon-search icon-white"></i></button></form>
+              </div>
+        </div>
+    {/if}
+    <div class="clear"></div>
     {if $domains}
 
     <div class="ribbon form-horizontal">

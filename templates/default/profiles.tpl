@@ -146,7 +146,7 @@
                             {foreach from=$o.widgets item=w name=wl}
                                 {if $smarty.foreach.wl.index%3=='0'}<tr>{/if}
                                 <td width="33%">
-                                    <input type="checkbox" class="privilege s{$o.id} services" id="services_{$o.id}_{$w.name}" value="1" name="privileges[services][{$o.id}][{$w.name}]" {if $submit.privileges.services[$o.id][$w.name]}checked="checked"{/if}/> <label for="services_{$o.id}_{$w.name}">{if $lang[$w.name]}{$lang[$w.name]}{elseif $w.fullname}{$w.fullname}{else}{$w.name}{/if}</label>
+                                    <input type="checkbox" class="privilege s{$o.id} services" id="services_{$o.id}_{$w.name}" value="1" name="privileges[services][{$o.id}][{$w.name}]" {if $submit.privileges.services[$o.id][$w.name]}checked="checked"{/if}/> <label for="services_{$o.id}_{$w.name}">{assign var=widg_name value="`$w.name`_widget"}{if $lang[$widg_name]}{$lang[$widg_name]}{elseif $lang[$w.name]}{$lang[$w.name]}{elseif $w.fullname}{$w.fullname}{else}{$w.name}{/if}</label>
                                 </td>
                                 {if $smarty.foreach.wl.index%3=='5'}</tr>{/if}
                             {/foreach}
@@ -178,7 +178,7 @@
                             {foreach from=$o.widgets item=w name=wl}
                                 {if $smarty.foreach.wl.index%3=='0'}<tr>{/if}
                                 <td width="33%">
-                                    <input type="checkbox" class="privilege d{$o.id} domains" id="domains_{$o.id}_{$w.name}" value="1" name="privileges[domains][{$o.id}][{$w.name}]" {if $submit.privileges.domains[$o.id][$w.name]}checked="checked"{/if}/> <label for="domains_{$o.id}_{$w.name}">{if $lang[$w.name]}{$lang[$w.name]}{elseif $w.fullname}{$w.fullname}{else}{$w.name}{/if}</label>
+                                    <input type="checkbox" class="privilege d{$o.id} domains" id="domains_{$o.id}_{$w.name}" value="1" name="privileges[domains][{$o.id}][{$w.name}]" {if $submit.privileges.domains[$o.id][$w.name]}checked="checked"{/if}/> <label for="domains_{$o.id}_{$w.name}">{assign var=widg_name value="`$w.name`_widget"}{if $lang[$widg_name]}{$lang[$widg_name]}{elseif $lang[$w.name]}{$lang[$w.name]}{elseif $w.fullname}{$w.fullname}{else}{$w.name}{/if}</label>
                                 </td>
                                 {if $smarty.foreach.wl.index%3=='5'}</tr>{/if}
                             {/foreach}
