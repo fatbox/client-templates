@@ -1,7 +1,7 @@
 {if ($action=='services'  || $action=='reseller' || $action=='servers' || $action=='accounts') && $services}
 {foreach from=$services item=service name=foo}
 <tr {if $smarty.foreach.foo.index%2 == 0}class="even"{/if}>
-    <td><a href="{$ca_url}clientarea/{$action}/{$service.slug}/{$service.id}/"> {$service.catname} - <strong>{$service.name}</strong> </a>
+    <td><a href="{$ca_url}clientarea/{$action}/{$service.slug}/{$service.id}/">  <strong>{$service.name}</strong> </a>
         {if $service.domain!=''}<br/>
         <a href="{$ca_url}clientarea/{$action}/{$service.slug}/{$service.id}/" style="text-decoration:none">{$service.domain}</a> {/if} </td>
     <td align="center"><span class="label label-{$service.status}">{$lang[$service.status]}</span></td>

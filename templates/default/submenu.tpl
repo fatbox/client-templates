@@ -5,6 +5,10 @@
 		<a href="{$ca_url}page/{$paged.url}/" {if $page && $page.title==$paged.title}class='active'{/if}>{$paged.title}</a>
 	{/foreach}
 
+  {foreach from=$HBaddons.client_submenu item=ad}
+      <a href="{$ca_url}{$ad.link}/" >{$ad.name}</a>
+    {/foreach}
+
 {elseif $cmd=='affiliates' && $affiliate}
     <a {if $action=='default'}class='active'{/if} href="{$ca_url}{$cmd}/">{$lang.Home}</a>
     <a {if $action=='commissions'}class='active'{/if} href="{$ca_url}{$cmd}/commissions/">{$lang.mycommisions}</a>

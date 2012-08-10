@@ -88,6 +88,10 @@ $.extend($.fn, {
 
 });
 function isEmpty(obj) {
+    if(typeof obj == "string"){
+        if(obj.length > 0)
+            return false;
+    }
     for(var prop in obj) {
         if(obj.hasOwnProperty(prop))
             return false;

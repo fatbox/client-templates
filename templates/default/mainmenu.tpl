@@ -14,6 +14,10 @@
 		<span class="separator"></span>
 		<a href="{$ca_url}affiliates/"  {if $cmd=='affiliates'}class="active"{/if}>{$lang.affiliates}</a>
 	{/if}
+          {foreach from=$HBaddons.client_mainmenu item=ad}
+            <span class="separator"></span>
+            <a href="{$ca_url}{$ad.link}/"  {if $cmd==$ad.link}class="active"{/if}>{$ad.name}</a>
+          {/foreach}
 	
 		<div class="chatstatus"><a href="{$ca_url}chat/" onclick="if(typeof(hb_footprint)!='undefined') hb_footprint.startChat();return false;"><img src="{$system_url}{$ca_url}hbchat&action=status" /></a></div>
 	<div class="clear"></div>

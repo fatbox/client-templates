@@ -3,6 +3,11 @@
     {foreach from=$infopages item=paged}
     <li {if $page && $page.title==$paged.title}class='active'{/if}><a href="{$ca_url}page/{$paged.url}/" >{$paged.title}</a></li>
 	{/foreach}
+
+    {foreach from=$HBaddons.client_submenu item=ad}
+        <li ><a href="{$ca_url}{$ad.link}/" >{$ad.name}</a></li>
+    {/foreach}
+
 </ul>
 
 {elseif $cmd=='affiliates' && $affiliate}

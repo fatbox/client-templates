@@ -19,7 +19,9 @@
     {if $enableFeatures.affiliates!='off'}
     <li class="{if $cmd=='affiliates'}{/if}"><a href="{$ca_url}affiliates/">{$lang.affiliates}</a></li>
 	{/if}
-
+  {foreach from=$HBaddons.client_mainmenu item=ad}
+        <li ><a href="{$ca_url}{$ad.link}/" >{$ad.name}</a></li>
+    {/foreach}
 </ul>
 
 
