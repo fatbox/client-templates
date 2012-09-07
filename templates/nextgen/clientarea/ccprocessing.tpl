@@ -34,14 +34,14 @@
                 <tr><td align="right">{$lang.autosave_cc}</td><td align="left"><input type="checkbox" value="1" name="save_cc" {if !$ccard}checked="checked"{/if} /> {$lang.autosave_cc_desc}</td></tr>
 
 			</tbody>
-                <tr><td align="right" width="160">{$lang.ccarcvv}</td><td align="left"><input type="text" name="cvv" size="4"  class="styled" autocomplete="off"/> <a href="{$template_dir}images/cvv.gif" target="_blank">?</a></td></tr>
-                
+                        <tr><td align="right" width="160">{$lang.ccarcvv}</td><td align="left"><input type="text" name="cvv" size="4"  class="styled" autocomplete="off" style="width:60px"/> <a href="#newccdetails" data-toggle="modal">?</a></td></tr>
+
 	<tr class="even"><td colspan="2" align="center"><input type="submit" value="{$lang.continue}" name="continue"  class="btn btn-info" style="font-weight:bold"/></td></tr>
 
                 </table>
-	
+
 </div>
-</div>	
+</div>
 
 <div class="wbox">
   	<div class="wbox_header">
@@ -49,7 +49,7 @@
 	<div class="wbox_content">
 	 <table cellpadding="0" cellspacing="0" border="0"  class="table table-striped" width="100%">
     <tbody>
-	
+
     <tr><td align="right" width="160">{$lang.firstname}</td><td  >
     <input name="client[firstname]" value="{$cadetails.firstname}" class="styled"/></td></tr>
 
@@ -89,8 +89,27 @@
     <input name="client[phonenumber]" value="{$cadetails.phonenumber}"  class="styled"/></td></tr>
 
     </tbody></table>
-	
+
 </div>
-</div>	
+</div>
      {securitytoken}</form>
+
+<div id="newccdetails" style="display:none" class="modal">
+            <form action="" method="post" style="margin-bottom:0px;">
+
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h3>CVV Info</h3>
+            </div>
+            <div class="modal-body">
+                <img src="{$template_dir}img/cvv.gif" alt="WHat is CVV code?"/>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+            </div>
+
+        {securitytoken}
+    </form>
+
+        </div>
 {/if}

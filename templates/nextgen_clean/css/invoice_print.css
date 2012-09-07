@@ -1,0 +1,42 @@
+#credit-applicable  {
+    display:none;
+}
+#backlink {
+    display: none;
+}
+#invoice-top {
+    display:none;
+}
+#invoice-bottom {
+    display:none;
+}
+#invoice-container {
+    width:650px !important;
+}
+#invoice-content {
+    background:none;
+    width:650px !important;
+    box-shadow:none !important;
+}
+body {
+    background:#ffffff;
+    margin:0px;
+}
+
+#invoice-content:after,#invoice-content:before, #status-ribbon, #status-ribbon:after{
+display:none  !important;
+}
+
+#invoice-body {
+
+    padding-left:0px;
+    padding-right:0px;
+    width:650px !important;
+}
+
+#gateway {
+    display:none;
+}
+#invoice-icons, #payform-container {
+    display:none;
+}

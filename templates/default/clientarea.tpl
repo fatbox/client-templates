@@ -259,7 +259,9 @@
         <tr><td align="right" width="160">{$lang.cctype}</td><td>{$ccard.cardtype}</td></tr>
         <tr class="even"><td align="right">{$lang.ccnum}</td><td>{$ccard.cardnum}</td></tr>
         <tr><td align="right">{$lang.ccexpiry}</td><td>{$ccard.expdate}</td></tr>
-        <tr><td colspan="2" align="center"><input type="button" value="{$lang.changecc}" id="newccbut"  class="padded" onclick="$(this).attr('disabled','disabled'); $('#newccdetails').show(); return false;" />&nbsp;<input type="submit" name="removecard" value="{$lang.removecc}" onclick="return confirm('{$lang.removecc_confirm}')"  class="padded"/></td></tr>
+        <tr><td colspan="2" align="center"><input type="button" value="{$lang.changecc}" id="newccbut"  class="padded" onclick="$(this).attr('disabled','disabled'); $('#newccdetails').show(); return false;" />
+                {if $allowremove}&nbsp;<input type="submit" name="removecard" value="{$lang.removecc}" onclick="return confirm('{$lang.removecc_confirm}')"  class="padded"/> {/if}
+            </td></tr>
         {else}
         <tr><td align="center" colspan="2" style="font-weight: bold">{$lang.nothing}</td></tr>
         <tr><td colspan="2" align="center"><input type="button" value="{$lang.newcc}" id="newccbut" onclick="$(this).attr('disabled','disabled'); $('#newccdetails').show(); return false;"   class="padded"/></td></tr>

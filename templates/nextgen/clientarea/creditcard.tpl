@@ -20,7 +20,7 @@ Manage credit card on file, submit new credit card details
 
             <form action="" method="post" style="margin-bottom:0px;">
             <a href="#newccdetails" data-toggle="modal" class="btn btn-info" >{$lang.changecc}</a>&nbsp;
-            <input type="submit" name="removecard" value="{$lang.removecc}" onclick="return confirm('{$lang.removecc_confirm}')"  class="btn btn-danger"/>
+            {if $allowremove}<input type="submit" name="removecard" value="{$lang.removecc}" onclick="return confirm('{$lang.removecc_confirm}')"  class="btn btn-danger"/>{/if}
         {securitytoken}</form>
 
 

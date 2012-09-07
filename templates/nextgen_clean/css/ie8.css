@@ -1,0 +1,8 @@
+header,nav,section,article,aside,footer,hgroup { 
+    display: block;
+}
+#mainmenu{
+    border:solid 1px #ddd;
+    height: 44px
+}
+
