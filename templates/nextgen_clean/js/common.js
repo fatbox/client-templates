@@ -335,11 +335,11 @@ $(document).ready(function(){
 
 
     function clearMenus(o) {
-        $(o).parent().children(".dropdown-menu").stop(false, true).slideUp('fast').parent().removeClass('open');
+        $(o).parent().children(".dropdown-menu").stop(false, true).parent().removeClass('open');
     }
     $("#mainmenu .dropdown-toggle").live({
         mouseenter: function () {
-            $(this).parent().addClass('open').children(".dropdown-menu").slideDown('fast'); /* var li = $(this).parent('li') , isActive = li.hasClass('open'); !isActive && li.toggleClass('open'); */
+            $(this).parent().addClass('open').children(".dropdown-menu"); /* var li = $(this).parent('li') , isActive = li.hasClass('open'); !isActive && li.toggleClass('open'); */
         },
         mouseleave: function () {
             var o = this;
