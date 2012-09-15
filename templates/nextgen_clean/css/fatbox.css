@@ -2,6 +2,11 @@
  * FatBox hostbill customizations
  */
 
+/* change background */
+body {
+    background: #f6f6f6 url('../img/grey.png') repeat 0px 0px;
+}
+
 /* update logo */
 h1#company {
     background-image: url(../img/fatbox-200x38.png);
