@@ -14,6 +14,11 @@ h1#company span {
     display: none;
 }
 
+/* remove content background */
+#cont {
+    background: none;
+}
+
 /* set our link color */
 body a {
     color: #00adee;
