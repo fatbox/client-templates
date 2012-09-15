@@ -64,3 +64,8 @@ body a {
 #mainmenu  .nav-tabs {
     border:none;
 }
+
+/* drop down selected background color */
+.dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+    background-color: #00adee;
+}
