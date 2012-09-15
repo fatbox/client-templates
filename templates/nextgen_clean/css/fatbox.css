@@ -32,7 +32,7 @@ body a {
 /* set our button color */
 .btn-primary {
     background-color: #10c6f1;
-    border: 1px solid #147191;
+    border: 1px solid #ccc;
     background-image: -moz-linear-gradient(top , #10c6f1, #00adee);
     background-image: -webkit-linear-gradient(top , #10c6f1, #00adee);
     background-image: linear-gradient(top , #10c6f1, #00adee);
@@ -45,13 +45,13 @@ body a {
     background-color: #00adee;
 }
 .btn-primary:active, .btn-primary.active {
-    background-color: #10c6f1 \9;
+    background-color: #10c6f1;
 }
 
 /* update the nav colors */
 #mainmenu .nav-tabs > li > a:hover, #mainmenu  .dropdown.open .dropdown-toggle {
     background-color:#10c6f1;
-    border: 1px solid #147191;
+    border: none;
     background-image: -moz-linear-gradient(top , #10c6f1, #00adee);
     background-image: -webkit-linear-gradient(top , #10c6f1, #00adee);
     background-image: linear-gradient(top , #10c6f1, #00adee);
@@ -62,7 +62,7 @@ body a {
 }
 
 #mainmenu .nav-tabs > li:hover + li >  a {
-    border-left: 1px solid #147191;
+    border-left: none;
 }
 
 #mainmenu .nav-tabs > .active > a,
@@ -73,6 +73,10 @@ body a {
 
 #mainmenu  .nav-tabs {
     border:none;
+}
+
+#mainmenu .nav-tabs > li > a {
+    border: none;
 }
 
 /* drop down selected background color */
