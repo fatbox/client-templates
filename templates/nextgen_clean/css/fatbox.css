@@ -3,11 +3,11 @@
  */
 
 /* update logo */
-div.headersection h1 {
+h1#company {
     background-image: url(../img/fatbox-200x38.png);
     background-repeat: no-repeat;
 }
-div.headersection h1 span {
+h1#company span {
     display: none;
 }
 

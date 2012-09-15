@@ -78,7 +78,7 @@
 
                         </div>
 
-                        <h1><span>{$business_name}</span></h1>
+                        <h1 id="company"><span>{$business_name}</span></h1>
                         <div class="clear"></div>
 
 
