@@ -56,7 +56,7 @@
                                     {if $logged=='1'}
                                     <i class="icon-user icon-white"></i> {$login.firstname} {$login.lastname}
                                     {else}
-                                    <i class="icon-lock icon-white"></i> {$lang.login}
+                                    <i class="icon-lock icon-white"></i> {$lang.login} / {$lang.createaccount}
                                     {/if}
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu  pull-right">
@@ -78,7 +78,7 @@
 
                         </div>
 
-                        <h1>{$business_name}</h1>
+                        <h1><span>{$business_name}</span></h1>
                         <div class="clear"></div>
 
 
