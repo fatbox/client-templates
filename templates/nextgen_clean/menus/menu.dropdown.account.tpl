@@ -28,7 +28,7 @@
                     <center>
                         <div class="iconwrap"><span style="" class="iconfont-card iconfont-size5 silver"></span><br/></div>
                         <p class="silver">{$lang.managedetailsinfo}</p>
-                        <button href="{$ca_url}clientarea/" class="btn btn-success"><i class="icon-user icon-white"></i> {$lang.dashboard}</button>
+                        <button href="{$ca_url}clientarea/" class="btn btn-primary"><i class="icon-user icon-white"></i> {$lang.dashboard}</button>
                     </center>
                 </div>
             </div>

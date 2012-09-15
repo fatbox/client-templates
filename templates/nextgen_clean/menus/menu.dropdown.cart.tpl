@@ -15,7 +15,7 @@
                 <center>
                     <div class="iconwrap"><span style="" class="iconfont-cloud iconfont-size5 silver"></span><br/></div>
                     <p class="silver">{$lang.checkoffersphrase}</p>
-                    <button href="{$ca_url}cart/" class="btn btn-success"><i class="icon-shopping-cart icon-white"></i> {$lang.proceedtocart}</button>
+                    <button href="{$ca_url}cart/" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> {$lang.proceedtocart}</button>
                 </center>
             </div>
         </div>

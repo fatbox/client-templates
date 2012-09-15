@@ -22,7 +22,7 @@
                     <center>
                         <div class="iconwrap"><span style="" class="iconfont-users iconfont-size5 silver"></span><br/></div>
                         <p class="silver">{$lang.earneasymoney}</p>
-                        <button href="{$ca_url}affiliates/" class="btn btn-success"><i class="icon-check icon-white"></i> {$lang.affiliatecenter}</button>
+                        <button href="{$ca_url}affiliates/" class="btn btn-primary"><i class="icon-check icon-white"></i> {$lang.affiliatecenter}</button>
                     </center>
                 </div>
             </div>

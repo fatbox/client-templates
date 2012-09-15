@@ -37,7 +37,7 @@
                     <center>
                         <div class="iconwrap"><span style="" class="iconfont-question-round iconfont-size5 silver"></span><br/></div>
                         <p class="silver">{$lang.wereherephrase}</p>
-                        <button href="{$ca_url}support/" class="btn btn-success"><i class="icon-question-sign icon-white"></i> {$lang.supporthome}</button>
+                        <button href="{$ca_url}support/" class="btn btn-primary"><i class="icon-question-sign icon-white"></i> {$lang.supporthome}</button>
                     </center>
                 </div>
             </div>

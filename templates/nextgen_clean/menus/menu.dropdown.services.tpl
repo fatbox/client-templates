@@ -20,7 +20,7 @@
             {else}
             <div class="span5 introduction">
                 <p class="silver">{$lang.servicesintroduction}</p>
-                <button class="btn btn-success" href="index.php?/cart/"><i class="icon-shopping-cart icon-white"></i> {$lang.proceedtocart}</button>
+                <button class="btn btn-primary" href="index.php?/cart/"><i class="icon-shopping-cart icon-white"></i> {$lang.proceedtocart}</button>
 
             </div>
             {/if}
