@@ -10,6 +10,7 @@
         <title>{$hb}{if $pagetitle}{$pagetitle} -{/if} {$business_name}</title>
         <link media="all" type="text/css" rel="stylesheet" href="{$template_dir}css/bootstrap.min.css" />
         <link media="all" type="text/css" rel="stylesheet" href="{$template_dir}css/main.css" />
+        <link media="all" type="text/css" rel="stylesheet" href="{$template_dir}css/fatbox.css" />
         <!--[if lt IE 9]>
         <link media="all" type="text/css" rel="stylesheet" href="{$template_dir}css/ie8.css" />
         <script type="text/javascript" src="{$template_dir}js/ie8.js"></script>
