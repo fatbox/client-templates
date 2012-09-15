@@ -48,6 +48,11 @@ body a {
     background-color: #10c6f1;
 }
 
+/* our dropdowns have a dark background so we need to change our border */
+.dropdown .btn-primary {
+    border: 1px solid #00adee;
+}
+
 /* update the nav colors */
 #mainmenu .nav-tabs > li > a:hover, #mainmenu  .dropdown.open .dropdown-toggle {
     background-color:#10c6f1;
