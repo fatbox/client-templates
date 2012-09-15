@@ -69,3 +69,10 @@ body a {
 .dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
     background-color: #00adee;
 }
+
+#mainmenu  .dropdown-menu li > a:hover, #mainmenu  .dropdown-menu .active > a, #mainmenu  .dropdown-menu .active > a:hover {
+    background-color: #00adee;
+    color: #fafafa;
+    box-shadow: 0px 1px 0px 0px #48A3FF inset, 0px 1px 1px 0px #2E2E2E;
+    text-decoration: none;
+}
