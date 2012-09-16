@@ -20,7 +20,7 @@ h1#company span {
 }
 
 /* remove content background */
-#cont {
+body div div#cont {
     background: none;
 }
 
