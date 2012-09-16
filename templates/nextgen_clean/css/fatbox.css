@@ -21,7 +21,7 @@ h1#company span {
 
 /* remove content background */
 body div div#cont {
-    background: none;
+    background: none !important;
 }
 
 /* set our link color */
