@@ -1,13 +1,7 @@
-<div class="header-title">
-    <span>Ticket</span>  #{$ticket.ticket_number}
-    <h2>{$ticket.subject|wordwrap:40:"\n":true}</h2>
-    <a class="btn btn-mini backbtn" href="{$ca_url}tickets/"><i class="icon-chevron-left"></i></a>
-</div>
-
 <div class="row flex-container bordered-section">
     <div class="span3 left-content flex-box-1">
 
-       
+
 
         <div class="sidebar-block">
             <p><i class="icon-tag"></i> {$lang.status} <b>{$lang[$ticket.status]}</b></p>
@@ -38,7 +32,7 @@
 
     </div>
     <div class="span9 right-content flex-box-1">
-   
+
 
         {if $ticket.status!='Closed'}
         <div class="brcrm" style="border-top:0px;">
@@ -92,10 +86,11 @@
         </div>
         {/if}
 
-
+        
         <div class="p19">
 
             {if $replies && !empty($replies) }
+            <link type="text/css" rel="stylesheet" href="{$template_dir}css/jRating.jquery.css" />
             <h3>{$lang.replies}</h3>
             {foreach from=$replies_rev item=reply}
 
@@ -110,7 +105,10 @@
 
 
                     <a class="right btn btn-mini quoter" rel="tooltip" title="Quote" onclick="return quoteTicket('r{$reply.id}');"><i class="icon-share"></i></a>
-
+                    {if $reply.type!='Client'}
+                        <div class="right rating-box {if $reply.rate_date}jDisabled{/if}" id="{$reply.rating}_{$reply.id}{if $ticket.client_id==0}_{$ticket.acc_hash}{/if}"></div>
+                        {if !$reply.rate_date}<span class="right byline" >{$lang.ratemyresponse}</span>{/if}
+                    {/if}
                     <div class="clear"></div>
 
                     <div class="comment"><div id="r{$reply.id}">{$reply.body|httptohref|nl2br}</div>
@@ -129,6 +127,8 @@
 
 
             {/foreach}
+            <script type="text/javascript" src="{$template_dir}js/jRating.jquery.js"></script>
+            <script type="text/javascript">$(".rating-box").jRating({literal}{{/literal}rateMax:{$ratingscale}{literal}}{/literal});</script>
             {/if}
 
 
