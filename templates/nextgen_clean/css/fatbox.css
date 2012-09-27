@@ -117,12 +117,10 @@ body #wrapper .product-container .product-actions input {
     text-shadow: 0px 1px 0px #238fc0;
     color:#fafafa;
 }
-body #wrapper .product-container .product-actions input:hover,
-body #wrapper .product-container .product-actions input:active,
-body #wrapper .product-container .product-actions input.active {
-    background-color: #00adee;
+body #wrapper .product-container .product-actions input:hover {
+    background: #00adee;
 }
 body #wrapper .product-container .product-actions input:active,
 body #wrapper .product-container .product-actions input.active {
-    background-color: #10c6f1;
+    background: #10c6f1;
 }
