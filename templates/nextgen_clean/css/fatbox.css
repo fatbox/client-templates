@@ -124,3 +124,11 @@ body #wrapper .product-container .product-actions input:active,
 body #wrapper .product-container .product-actions input.active {
     background: #10c6f1;
 }
+
+/*
+ * By default the open ticket page shows the description for all departments
+ * Hide them
+ */
+body div.deptsdesc div {
+    display: none;
+}
