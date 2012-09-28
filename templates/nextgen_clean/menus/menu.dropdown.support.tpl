@@ -3,7 +3,7 @@
             <div class="row ">
                 <div class="span5">
                     <ul class="span2">
-                        <li class="nav-header span2">Support tickets</li>
+                        <li class="nav-header span2">{$lang.tickets}</li>
                         <li ><a href="{$ca_url}tickets/new/">{$lang.openticket}</a></li>
                         <li ><a href="{$ca_url}tickets/" >{$lang.ticketarchive}</a></li>
                     </ul>

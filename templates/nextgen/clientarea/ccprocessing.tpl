@@ -105,7 +105,7 @@
                 <img src="{$template_dir}img/cvv.gif" alt="WHat is CVV code?"/>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                <a href="#" class="btn" data-dismiss="modal">{$lang.close}</a>
             </div>
 
         {securitytoken}

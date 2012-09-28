@@ -166,39 +166,48 @@ function switchdeptdesc(items) {
   </div>
  
    
-   {if $replies && !empty($replies) }
-   <h3>{$lang.replies}</h3>
-   {foreach from=$replies item=reply}
-  <div >
-    <table width="100%" cellspacing="0" cellpadding="10" border="0" {if $reply.type=='Client'}class="cticket"{else}class="aticket"{/if}>
-      <tbody>
-        <tr class="heade">
-          <td><strong>{$reply.name}</strong> {if $reply.type=='Admin'}{$lang.staff}{/if}</td>
-          <td align="right">{$reply.date|dateformat:$date_format}</td>
-        </tr>
-		<tr>
-		<td colspan="2">
-		 <div class="ticketreply">
-  {$reply.body|httptohref|nl2br}<br />
-{if !empty($attachments[$reply.id])}
-<br /><strong>		{$lang.attachments}</strong><br />
-{foreach from=$attachments[$reply.id] item=attachment}
-		<a href="?action=download&amp;id={$attachment.id} "  class="attach3">{$attachment.org_filename}</a><br />
-		{/foreach}
-	
-  {/if}
-  
-    </div>
-		</td>
-		</tr>
-		
-      </tbody>
-    </table>
-  </div>
-  
- 
-  <br/>
-  {/foreach}
+  {if $replies && !empty($replies) }
+      <link type="text/css" rel="stylesheet" href="{$template_dir}js/jRating.jquery.css" />
+      <h3>{$lang.replies}</h3>
+      {foreach from=$replies item=reply}
+          <div >
+              <table width="100%" cellspacing="0" cellpadding="10" border="0" {if $reply.type=='Client'}class="cticket"{else}class="aticket"{/if}>
+                  <tbody>
+                      <tr class="heade">
+                          <td><strong>{$reply.name}</strong> {if $reply.type=='Admin'}{$lang.staff}{/if}</td>
+                          <td align="right">
+                              {$reply.date|dateformat:$date_format}
+                              {if $reply.type!='Client'}
+                                  <div class="right rating-box {if $reply.rate_date}jDisabled{/if}" id="{$reply.rating}_{$reply.id}{if $ticket.client_id==0}_{$ticket.acc_hash}{/if}"></div>
+                                  {if !$reply.rate_date}<span class="right" style="margin-left:10px">{$lang.ratemyresponse}</span>{/if}
+                              {/if}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td colspan="2">
+                              <div class="ticketreply">
+                                  {$reply.body|httptohref|nl2br}<br />
+                                  {if !empty($attachments[$reply.id])}
+                                      <br /><strong>		{$lang.attachments}</strong><br />
+                                      {foreach from=$attachments[$reply.id] item=attachment}
+                                          <a href="?action=download&amp;id={$attachment.id} "  class="attach3">{$attachment.org_filename}</a><br />
+                                      {/foreach}
+                                          
+                                  {/if}
+                                      
+                              </div>
+                          </td>
+                      </tr>
+            
+                  </tbody>
+              </table>
+          </div>
+      
+      
+          <br/>
+      {/foreach}
+      <script type="text/javascript" src="{$template_dir}/js/jRating.jquery.js"></script>
+      <script type="text/javascript">$(".rating-box").jRating({literal}{{/literal}rateMax:{$ratingscale}{literal}}{/literal});</script>
   {/if}
   
   {if $ticket.status!='Closed'}

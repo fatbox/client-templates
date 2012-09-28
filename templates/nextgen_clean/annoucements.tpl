@@ -6,7 +6,7 @@
     <div class="brcrm">
         <span class="annoucement_date left"><i class="icon-time"></i> {$lang.published} {$annoucement.date|dateformat:$date_format}</span>
 
-        <a href="{$ca_url}news/"  class="btn btn-mini right"><i class="icon-chevron-left"></i> Back</a>
+        <a href="{$ca_url}news/"  class="btn btn-mini right"><i class="icon-chevron-left"></i> {$lang.back}</a>
 
         <div class="clear"></div>
     </div>

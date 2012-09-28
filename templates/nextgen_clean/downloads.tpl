@@ -58,7 +58,7 @@
             <li class="active">{$category.name}</li>
         </ul>
 
-        <a class="btn right btn-mini" href="{$ca_url}downloads/"><i class="icon-chevron-left"></i> Back</a>
+        <a class="btn right btn-mini" href="{$ca_url}downloads/"><i class="icon-chevron-left"></i> {$lang.back}</a>
 
         <div class="clear"></div>
     </div>

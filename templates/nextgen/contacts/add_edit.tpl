@@ -9,7 +9,7 @@ Add and/or edit contact
         <li class="active">{if $action=='add'} {$lang.addnewprofile} {else} {$lang.profiledetails}{/if}</li>
     </ul>
 
-    <a class="btn right btn-mini" href="{$ca_url}profiles/"><i class="icon-chevron-left"></i> Back</a>
+    <a class="btn right btn-mini" href="{$ca_url}profiles/"><i class="icon-chevron-left"></i> {$lang.back}</a>
 
     <div class="clear"></div>
 </div>

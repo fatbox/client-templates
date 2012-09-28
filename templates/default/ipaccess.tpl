@@ -20,17 +20,17 @@
 				<a href="#" class="toggle" onclick="$('.toggle').toggle(); return false;" > {$lang.show|capitalize}</a>
 				<a href="#" style="display:none" class="toggle" onclick="$('.toggle').toggle(); return false;" >{$lang.hide|capitalize}</a>                 
 				<ul style="list-style:inside;padding:0;display:none" class="toggle" >
-				Rule formats:
-					<li> <strong>all</strong> - keyword matching all IPs</li>
-					<li> <strong>xxx.xxx.xxx.xxx</strong> - Single IP</li>
-					<li> <strong>xxx.xxx.xxx.xxx/M</strong> - IP with Mask in CIDR format</li>
-					<li> <strong>xxx.xxx.xxx.xxx/mmm.mmm.mmm.mmm</strong> - IP with Mask in dotted quad format</li>
+				{$lang.ruleformat}:
+					<li> <strong>all</strong> - {$lang.keywordmatchingall}</li>
+					<li> <strong>xxx.xxx.xxx.xxx</strong> - {$lang.singleiprule}</li>
+					<li> <strong>xxx.xxx.xxx.xxx/M</strong> - {$lang.ipmaskrule}</li>
+					<li> <strong>xxx.xxx.xxx.xxx/mmm.mmm.mmm.mmm</strong> - {$lang.ipmaskruledoted}</li>
 				</ul>
 				<ul style="list-style:inside;padding:0;display:none" class="toggle">
 				Example rules:
-					<li><strong>120.123.123.57/28</strong> matches IP from 120.123.123.48 to 120.123.123.63 </li>
+					<li>{$lang.ruleexample1} </li>
 					<li><strong>120.123.123.57/24</strong> matches IP from 120.123.123.0 to 120.123.123.255 </li>
-					<li><strong>120.123.123.57/16</strong> matches IP from 120.123.0.0 to 120.123.255.255</li>
+					<li>{$lang.ruleexample2}</li>
 					<li><strong>120.123.123.57/8</strong> matches IP from 120.0.0.0 to 120.255.255.255</li>
 				</ul>
 			</td>
