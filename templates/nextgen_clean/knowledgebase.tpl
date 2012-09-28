@@ -12,7 +12,7 @@
             <li class="active">{$article.title}</li>
         </ul>
 
-        <a class="btn right btn-mini" href="{$ca_url}knowledgebase/"><i class="icon-chevron-left"></i> Back</a>
+        <a class="btn right btn-mini" href="{$ca_url}knowledgebase/"><i class="icon-chevron-left"></i> {$lang.back}</a>
 
         <div class="clear"></div>
     </div>
@@ -35,7 +35,7 @@
         <li><a href="{$ca_url}knowledgebase/">{$lang.knowledgebase|capitalize}</a> <span class="divider">/</span></li>
         {foreach from=$path item=p}<li><a href="{$ca_url}knowledgebase/category/{$p.id}/{$p.slug}/">{$p.name}</a> <span class="divider">/</span></li>{/foreach}
     </ul>
-        <a class="btn right btn-mini" href="{$ca_url}knowledgebase/"><i class="icon-chevron-left"></i> Back</a>
+        <a class="btn right btn-mini" href="{$ca_url}knowledgebase/"><i class="icon-chevron-left"></i> {$lang.back}</a>
         <div class="clear"></div>
         </div>
      <div class="p19">

@@ -3,7 +3,7 @@
         <div class="row ">
             <div class="span5">
                 <ul class="span5">
-                    <li class="nav-header span5">Place new order</li>
+                    <li class="nav-header span5">{$lang.placeorder}</li>
                     {foreach from=$orderpages item=op}
                         <li><a href="{$ca_url}cart/{$op.slug}/">{$op.name}</a></li>
                     {/foreach}

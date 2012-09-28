@@ -1,10 +1,18 @@
+<!--BOF: FILEUPLOAD -->
+<script src="{$template_dir}js/fileupload/vendor/jquery.ui.widget.js"></script>
+<script src="{$template_dir}js/fileupload/vendor/tmpl.min.js"></script>
+<script src="{$template_dir}js/fileupload/jquery.iframe-transport.js"></script>
+<script src="{$template_dir}js/fileupload/jquery.fileupload.js"></script>
+<script src="{$template_dir}js/fileupload/jquery.fileupload-ui.js"></script>
+<link media="all" type="text/css" rel="stylesheet" href="{$template_dir}js/fileupload/styles.css" />
+<!--EOF: FILEUPLOAD -->
 <div class="row flex-container bordered-section">
     <div class="span3 left-content flex-box-1">
 
         <div class="sidebar-block">
 
             <div class="header-title">
-                <span>Ticket</span>
+                <span>{$lang.Ticket}</span>
                 <h3 >#{$ticket.ticket_number}</h3>
             </div>
         </div>
@@ -12,13 +20,13 @@
         <div class="sidebar-block">
             <p><i class="icon-tag"></i> {$lang.status} <b>{$lang[$ticket.status]}</b></p>
             <p><i class="icon-folder-open"></i> {$lang.department} <b>{$ticket.deptname}</b></p>
-            <p><i class="icon-time"></i> Added <b>{$ticket.date|dateformat:$date_format}</b></p>
+            <p><i class="icon-time"></i> {$lang.added} <b>{$ticket.date|dateformat:$date_format}</b></p>
         </div>
 
         <div class="sidebar-block">
 
             {if $ticket.status!='Closed'}
-            <p>Your issue is already resolved? Click button below to close this ticket</p>
+            <p>{$lang.resolvedticket}</p>
 
             <form  action="" method="post">
                 <input type="hidden" value="closeticket" name="make" />
@@ -26,7 +34,7 @@
 
 	{securitytoken}</form>
             {else}
-            <p>Your issue is not yet resolved? Use button below to re-open this ticket.</p>
+            <p>{$lang.notresolvedticket}</p>
 
             <form  action="" method="post">
                 <input type="hidden" value="reopen" name="make" />
@@ -44,7 +52,7 @@
         </div>
 
         <div class="p19">
-                    <a class="right btn btn-mini" href="{$ca_url}tickets/"><i class="icon-chevron-left"></i> All tickets</a>
+                    <a class="right btn btn-mini" href="{$ca_url}tickets/"><i class="icon-chevron-left"></i> {$lang.alltickets}</a>
                 <div class="clear"></div>
         </div>
         {if $ticket.status!='Closed'}
@@ -70,23 +78,41 @@
                                                 <div id="hintarea" style="display:none"></div></td>
                                         </tr>
                                         <tr>
-                                            <td ><button class="btn btn-success  btn-large" ><i class="icon-comment icon-white"></i> {$lang.submit}</button></td>
-                                            <td align="right"><a class="btn btn-mini" onclick="$(this).hide();$('#attachments-new').show();return false;"><i class="icon-plus"></i> Attach a file</a</td>
+                                            <td width="100" valign="top"><button class="btn btn-success  btn-large" id="submitbutton"><i class="icon-comment icon-white"></i> {$lang.submit}</button></td>
+                                            <td align="right" id="fileupload" data-url="?cmd=tickets&action=handleupload">
+                                                <div id="dropzonecontainer">
+                        <div id="dropzone"><h2>{$lang.droptoattach}</h2></div>
+                        <div class="fileupload-buttonbar">
+                            <div class="span5 fileupload-progress fade"  style="float:left">
+                                <!-- The global progress bar -->
+                                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="bar" style="width:0%;float:left"></div>
+                                </div>
+                                <!-- The extended global progress information -->
+                                <div class="progress-extended">&nbsp;</div>
+                            </div>
+                            <div  style="float:right">
+                                <!-- The fileinput-button span is used to style the file input field as button -->
+                                <span class="btn btn-mini  fileinput-button">
+                                    <i class="icon-plus"></i>
+                                    <span>{$lang.attachfile}</span>
+                                    <input type="file" name="attachments[]" multiple  />
+                                </span>
+                         <div class="fs11">{$extensions|string_format:$lang.allowedext}</div>
+
+                            </div>
+                            <!-- The global progress information -->
+
+                            <div class="clear"></div>
+                        </div>
+                        <!-- The table listing the files available for upload/download -->
+                        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+                        <!--EOF: FILEUPLOAD -->
+
+                         </div>
+                                            </td>
                                         </tr>
-                                        <tr id="attachments-new" style="display:none">
-                                    <script type="text/javascript">
-                                        {literal}
-                                        function addAnother(el) {
-                                            $(el).after('<br/><input type="file" size="50" name="attachments[]"/>');
-                                            return false;
-                                        }
-                                        {/literal}
-                                    </script>
-                                    <td colspan="2"><input type="file" size="50" name="attachments[]" />
-                                        <a onclick="addAnother(this)" href="javascript:void(0)" >{$lang.addanother}</a><br/>
-                                        <div id="fileuploads"/>
-                                        <small>{$extensions|string_format:$lang.allowedext}</small></td>
-                        </tr>
+
                     </tbody>
                 </table></td>
                 </tr>
@@ -191,3 +217,83 @@
         }
     });
     </script>{/literal}
+<!--BOF: FILEUPLOAD -->{literal}
+<script type="text/javascript">
+    $(function () {
+
+        function enablesubmit() {
+            $('#submitbutton').addClass('btn-success').removeClass('disabled').removeClass('btn-inverse').removeAttr('disabled');
+        }
+        function disablesubmit() {
+            $('#submitbutton').removeClass('btn-success').addClass('disabled').addClass('btn-inverse').attr('disabled','disabled');
+        }
+        function showdropzone(e) {
+          var dropZone = $('#dropzone').not('.hidden');
+            dropZone.show();
+                 setTimeout(function () {
+                    hidedropzone()
+                }, 6000);
+        }
+        function hidedropzone() {
+            $('#dropzone').hide().addClass('hidden');
+        }
+        $('#fileupload').fileupload();
+        $('#fileupload').bind('fileuploadsend', disablesubmit)
+        .bind('fileuploadalways', enablesubmit)
+        .bind('fileuploaddragover', showdropzone)
+         .bind('fileuploaddrop', hidedropzone);
+
+    });
+
+</script>
+<script id="template-upload" type="text/x-tmpl">
+    {% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td class="name" width="40%"><span>{%=file.name%}</span></td>
+        <td class="size" width="90"><span>{%=o.formatFileSize(file.size)%}</span></td>
+        {% if (file.error) { %}
+        <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
+        {% } else if (o.files.valid && !i) { %}
+        <td>
+        </td>
+        <td class="start" width="90">{% if (!o.options.autoUpload) { %}
+            <button class="btn btn-primary btn-mini">
+                <i class="icon-upload icon-white"></i>
+                <span>Start</span>
+            </button>
+            {% } %}</td>
+        {% } else { %}
+        <td colspan="2"></td>
+        {% } %}
+        <td class="cancel" width="90" align="right">{% if (!i) { %}
+            <button class="btn btn-warning  btn-mini">
+                <i class="icon-ban-circle icon-white"></i>
+                <span>{/literal}{$lang.cancel}{literal}</span>
+            </button>
+            {% } %}</td>
+    </tr>
+    {% } %}
+</script><!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        {% if (file.error) { %}
+            <td class="name" width="40%"><span>{%=file.name%}</span></td>
+            <td class="size" width="90"><span>{%=o.formatFileSize(file.size)%}</span></td>
+            <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
+        {% } else { %}
+            <td class="name" width="40%">{%=file.name%} <input type="hidden" name="asyncattachment[]" value="{%=file.hash%}" /></td>
+            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+            <td colspan="2"></td>
+        {% } %}
+        <td class="delete" width="90"  align="right">
+            <button class="btn btn-danger btn-mini" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
+                <i class="icon-trash icon-white"></i>
+                <span>{/literal}{$lang.delete}{literal}</span>
+            </button>
+        </td>
+    </tr>
+{% } %}
+</script>
+{/literal}
+<!--EOF: FILEUPLOAD -->

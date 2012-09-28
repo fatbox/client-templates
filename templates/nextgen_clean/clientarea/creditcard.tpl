@@ -27,10 +27,10 @@ Manage credit card on file, submit new credit card details
 
             {else}
             <br/><br/>
-            <center>No credit card has been submitted yet
+            <center>{$lang.noccyet}
             <br/><br/>
                 <div class="box-feature"><a href="#newccdetails" data-toggle="modal"><span class="iconfont-plus-round iconfont-size5 silver" style=""></span></a>
-                    <h1>Add new credit card</h1>
+                    <h1>{$lang.newcc}</h1>
                 </div>
             </center>
             {/if}
@@ -58,7 +58,7 @@ Manage credit card on file, submit new credit card details
             </table>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                <a href="#" class="btn" data-dismiss="modal">{$lang.close}</a>
                 <input type="submit" name="addcard" value="{$lang.savechanges}"  class="btn btn-info"/>
             </div>
 

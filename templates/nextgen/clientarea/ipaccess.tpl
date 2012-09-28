@@ -50,18 +50,18 @@ Security/IP access settings
         </table>
     </div>
         <div class="span4 well" style="font-size:11px">
-           <b>Rule formats:</b><ul style="padding:0;margin:0px;" >
+           <b>{$lang.ruleformat}:</b><ul style="padding:0;margin:0px;" >
 				
-                <li> <strong>all</strong> - keyword matching all IPs</li>
-                <li> <strong>xxx.xxx.xxx.xxx</strong> - Single IP</li>
-                <li> <strong>xxx.xxx.xxx.xxx/M</strong> - IP with Mask in CIDR format</li>
-                <li> <strong>xxx.xxx.xxx.xxx/mmm.mmm.mmm.mmm</strong> - IP with Mask in dotted quad format</li>
+                <li> <strong>all</strong> - {$lang.keywordmatchingall}</li>
+                <li> <strong>xxx.xxx.xxx.xxx</strong> - {$lang.singleiprule}</li>
+                <li> <strong>xxx.xxx.xxx.xxx/M</strong> - {$lang.ipmaskrule}</li>
+                <li> <strong>xxx.xxx.xxx.xxx/mmm.mmm.mmm.mmm</strong> - {$lang.ipmaskruledoted}</li>
             </ul><br/>
             <b>Example rules:</b>
             <ul style="padding:0;margin:0px;" >
 		
-                <li><strong>120.123.123.57/28</strong> matches IP from 120.123.123.48 to 120.123.123.63 </li>
-                <li><strong>120.123.123.57/16</strong> matches IP from 120.123.0.0 to 120.123.255.255</li>
+                <li>{$lang.ruleexample1} </li>
+                <li>{$lang.ruleexample2}</li>
             </ul></div>
 
     </div>
