@@ -148,6 +148,10 @@ body #wrapper #nav-onapp li.current-menu-item a {
     border-color: #c8c8c8;
 }
 
+body #wrapper #nav-onapp li.current-menu-item {
+    border-bottom: 1px solid #10C6F1;
+}
+
 body #wrapper #nav-onapp ul {
     border-color: #c8c8c8;
 }
