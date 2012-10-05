@@ -101,7 +101,7 @@ Add and/or edit contact
                         <td width="33%">
                             <input type="checkbox" class="privilege  misc" id="misc_emails" name="privileges[misc][emails]"  value="1" {if $submit.privileges.misc.emails}checked="checked"{/if} /> <span for="misc_emails">{$lang.misc_emails}</span>
                         </td>
-                        <td width="33%">
+                        <td width="33%" {if $enableFeatures.security!='on'}style="display:none"{/if}>
                             <input type="checkbox" class="privilege misc" id="misc_editipaccess" name="privileges[misc][editipaccess]"  value="1" {if $submit.privileges.misc.editipaccess}checked="checked"{/if} /> <span for="misc_editmain" style="color:red">{$lang.misc_editipaccess}</span>
                         </td>
                     </tr><tr>

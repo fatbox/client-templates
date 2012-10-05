@@ -8,7 +8,7 @@
                         <li ><a href="{$ca_url}clientarea/details/" >{$lang.details}</a></li>
                         <li ><a href="{$ca_url}clientarea/password/" >{$lang.changepass}</a></li>
                         <li ><a href="{$ca_url}profiles/" >{$lang.managecontacts}</a></li>
-                        <li ><a href="{$ca_url}clientarea/ipaccess/" >{$lang.security}</a></li>
+                        {if $enableFeatures.security=='on'}<li ><a href="{$ca_url}clientarea/ipaccess/" >{$lang.security}</a></li>{/if}
                         {if $enableFeatures.deposit!='off' }<li><a href="{$ca_url}clientarea/addfunds/">{$lang.addfunds}</a></li>{/if}
                     </ul>
 
