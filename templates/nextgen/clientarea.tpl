@@ -36,9 +36,9 @@
 
 	{include file='clientarea/invoices.tpl'}
 
-{elseif $action=='cancel'}
+{elseif $action=='cancel'}<for>
 	{include file='services/cancelationrequest.tpl'}
-
+</for>
 {elseif $action=='ccprocessing'}
 
 	{include file='clientarea/ccprocessing.tpl'}
