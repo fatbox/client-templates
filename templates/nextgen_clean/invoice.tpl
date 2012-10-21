@@ -35,6 +35,24 @@
 {/if}
 <div id="backlink"><a href="{$ca_url}clientarea/">- {$lang.backtoclientarea} -</a></div>
 <div id="invoice-container" class="unpaid-container">
+{if $error}
+    <div >
+            <div class="alert alert-error">
+
+            {foreach from=$error item=blad}{$blad}<br/>{/foreach}
+        </div>
+
+    </div>{/if}
+    {if $info}
+    <div >
+
+        <div class="alert alert-info">
+            {if $info}
+            {foreach from=$info item=infos}{$infos}<br/>{/foreach}
+            {/if}
+        </div>
+    </div>
+{/if}
 	<div id="invoice-content">
             <div id="status-ribbon" class="{$invoice.status}">{$lang[$invoice.status]}</div>
 
