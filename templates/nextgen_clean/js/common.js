@@ -214,6 +214,7 @@ $(document).ready(function(){
     $('#pageswitch button').click(function(){
         var p = parseInt($(this).text())-1;
         $('#currentpage').val(p).change();
+        return false;
     });
     $('#currentpage').change(function(){
         $('#updater').addLoader();

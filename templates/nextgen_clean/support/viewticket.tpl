@@ -6,6 +6,12 @@
 <script src="{$template_dir}js/fileupload/jquery.fileupload-ui.js"></script>
 <link media="all" type="text/css" rel="stylesheet" href="{$template_dir}js/fileupload/styles.css" />
 <!--EOF: FILEUPLOAD -->
+<div class="header-title">
+    <span>Ticket</span>  #{$ticket.ticket_number}
+    <h2>{$ticket.subject|wordwrap:40:"\n":true}</h2>
+    <a class="btn btn-mini backbtn" href="{$ca_url}tickets/"><i class="icon-chevron-left"></i></a>
+</div>
+
 <div class="row flex-container bordered-section">
     <div class="span3 left-content flex-box-1">
 
