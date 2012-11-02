@@ -39,93 +39,56 @@ Add and/or edit contact
         </div>
         <div class="clear"></div>
         <div >
-            <h4><input type="checkbox" class="privilege " id="billing_main" onclick="cUnc(this,'billing')"/><span for="billing_main" >{$lang.billing_main}</span></h4>
-            <div class="pgroup mb20">
-                <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                    <tr>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege billing" id="billing_emails" value="1" name="privileges[billing][emails]" {if $submit.privileges.billing.emails}checked="checked"{/if} /> <span for="billing_emails">{$lang.billing_emails}</span>
-                        </td>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege billing" id="billing_payinvoice" value="1" name="privileges[billing][payinvoice]"  {if $submit.privileges.billing.payinvoice}checked="checked"{/if} /> <span for="billing_payinvoice">{$lang.billing_payinvoice}</span>
-                        </td>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege billing" id="billing_orders" value="1" name="privileges[billing][orders]" {if $submit.privileges.billing.orders}checked="checked"{/if}  /> <span for="billing_orders">{$lang.billing_orders}</span>
-                        </td>
-                    </tr> <tr>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege billing" id="billing_balance"  value="1" name="privileges[billing][balance]" {if $submit.privileges.billing.balance}checked="checked"{/if}  /> <span for="billing_balance">{$lang.billing_balance}</span>
-                        </td>
-                        <td width="33%">
-                            {if $enableFeatures.deposit!='off' }<input type="checkbox" class="privilege billing" id="billing_addfunds" value="1" name="privileges[billing][addfunds]" {if $submit.privileges.billing.addfunds}checked="checked"{/if}  /> <span for="billing_addfunds">{$lang.billing_addfunds}</span>{/if}
-                        </td>
-                        <td width="33%">
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <h4><input type="checkbox" class="privilege " id="support_main" onclick="cUnc(this,'support')" /><span for="support_main" >{$lang.support_main}</span></h4>
-            <div class="pgroup mb20">
-                <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                    <tr>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege support" id="support_newticket"  value="1" name="privileges[support][newticket]" {if $submit.privileges.support.newticket}checked="checked"{/if}  /> <span for="support_newticket">{$lang.support_newticket}</span>
-                        </td>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege support" id="support_tickets"  value="1"  name="privileges[support][tickets]" {if $submit.privileges.support.tickets}checked="checked"{/if}  /> <span for="support_tickets">{$lang.support_tickets}</span>
-                        </td>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege support" id="support_closeticket"  value="1"  name="privileges[support][closeticket]" {if $submit.privileges.support.closeticket}checked="checked"{/if} /> <span for="support_closeticket">{$lang.support_closeticket}</span>
-                        </td>
-                    </tr>  <tr>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege support" id="support_emails"  value="1" name="privileges[support][emails]" {if $submit.privileges.support.emails}checked="checked"{/if}  /> <span for="support_emails">{$lang.support_emails}</span>
-                        </td>
-                        <td width="33%">
-                        </td>
-                        <td width="33%">
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
-            <h4><input type="checkbox" class="privilege " id="misc_main" onclick="cUnc(this,'misc')" /><span for="misc_main" >{$lang.misc_main}</span></h4>
-            <div class="pgroup mb20">
-                <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                    <tr>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege misc" id="misc_editmain" name="privileges[misc][editmain]"  value="1" {if $submit.privileges.misc.editmain}checked="checked"{/if} /> <span for="misc_editmain" style="color:red">{$lang.misc_editmain}</span>
-                        </td>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege  misc" id="misc_emails" name="privileges[misc][emails]"  value="1" {if $submit.privileges.misc.emails}checked="checked"{/if} /> <span for="misc_emails">{$lang.misc_emails}</span>
-                        </td>
-                        <td width="33%" {if $enableFeatures.security!='on'}style="display:none"{/if}>
-                            <input type="checkbox" class="privilege misc" id="misc_editipaccess" name="privileges[misc][editipaccess]"  value="1" {if $submit.privileges.misc.editipaccess}checked="checked"{/if} /> <span for="misc_editmain" style="color:red">{$lang.misc_editipaccess}</span>
-                        </td>
-                    </tr><tr>
-                        <td width="33%">
-                            <input type="checkbox" class="privilege misc " id="misc_manageprofiles" name="privileges[misc][manageprofiles]" value="1"  {if $submit.privileges.misc.manageprofiles}checked="checked"{/if} /> <span for="misc_manageprofiles">{$lang.misc_manageprofiles}</span>
-                        </td>
-                        <td width="33%">
-                            {if $services}
-                            <input type="checkbox" class="privilege  " id="services_full" name="privileges[services][full]" value="1"  {if $submit.privileges.services.full}checked="checked"{/if} onclick="if($(this).is(':checked'))$('#priv_serv').slideUp();else $('#priv_serv').slideDown()"/> <span for="services_full" style="color:red">{$lang.services_full}</span>
+            {foreach from=$privilages item=privs key=group}
+                {foreach from=$privs item=privopt}{if !$privopt.displaygroup || $privoptdisplaygroup==group}{assign value=1 var=displaythis}{/if}{/foreach}
+                {if $displaythis!=1}{break}{/if}
+                <h4><input type="checkbox" class="privilege " id="{$group}_main" onclick="cUnc(this,'{$group}')" /><span for="{$group}_main" > {assign value="`$group`_main" var=groupmain}{$lang[$groupmain]}</span></h4>
+                <div class="pgroup mb20">
+                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                        {counter name=trp print=false start=0 assign=trp}
+                        {foreach from=$privs item=privopt key=priv name=loop}
+                            {if $privopt.condition && !$privopt.condition|checkcondition}{continue}{/if}
+                            {if $trp != 0 && $trp % 3 == 0}</tr>{/if}
+                            {if $trp % 3 == 0}<tr>{/if}
+                            
+                            <td width="33%">
+                                <input type="checkbox" class="privilege {$group}" id="{$group}_{$priv}"  value="1" name="privileges[{$group}][{$priv}]" {if $submit.privileges.$group.$priv}checked="checked"{/if}  /> 
+                                <span for="{$group}_{$priv}" {if $privopt.important}style="color:red"{/if}> 
+                                    {assign value="`$group`_`$priv`" var=grouppriv}{$lang[$grouppriv]}
+                                </span>
+                            </td>
+                            {counter name=trp}
+                        {/foreach}
+                        {assign value=0 var=displaythis}
+                        {foreach from=$privilages item=privs2 key=group2}
+                            {foreach from=$privs2 item=privopt key=priv name=loop}
+                            {if $privopt.displaygroup == $group && (!$privopt.condition || $privopt.condition|checkcondition)}
+                                {if $trp != 0 && $trp % 3 == 0}</tr>{/if}
+                                {if $trp % 3 == 0}<tr>{/if}
+                                    <td width="33%">
+                                        <input type="checkbox" class="privilege {$group2}" id="{$group2}_{$priv}"  value="1" name="privileges[{$group2}][{$priv}]" {if $submit.privileges.$group2.$priv}checked="checked"{/if}  /> 
+                                        <span for="{$group2}_{$priv}" {if $privopt.important}style="color:red"{/if}> 
+                                            {assign value="`$group2`_`$priv`" var=grouppriv}{$lang[$grouppriv]}
+                                        </span>
+                                    </td>
+                                {counter name=trp}
                             {/if}
-                        </td>
-                        <td width="33%">
-                            {if $domains}
-                            <input type="checkbox" class="privilege  " id="domains_full" name="privileges[domains][full]" value="1"  {if $submit.privileges.domains.full}checked="checked"{/if} onclick="if($(this).is(':checked'))$('#priv_dom').slideUp();else $('#priv_dom').slideDown()" /> <span for="domains_full" style="color:red">{$lang.domains_full}</span>
-                            {/if}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="33%">
-                            {if $enableFeatures.affiliates!='off'}<input type="checkbox" class="privilege misc " name="privileges[misc][affiliates]"  id="misc_affiliates" value="1"  {if $submit.privileges.misc.affiliates}checked="checked"{/if} /> <span for="misc_affiliates" >{$lang.misc_affiliates}</span>{/if}
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                            {/foreach}
+                        {/foreach}
+                        <tr></tr>
+                    </table>
+                </div>
+            {/foreach}
+            {literal}
+            <script type="text/javascript" >
+                $('#services_full').change(function(){
+                    if($(this).is(':checked'))$('#priv_serv').slideUp();else $('#priv_serv').slideDown();
+                }).change();
+                $('#domains_full').change(function(){
+                    if($(this).is(':checked'))$('#priv_dom').slideUp();else $('#priv_dom').slideDown();
+                }).change();
+            </script>
+            {/literal}
             <div id="priv_serv" {if $submit.privileges.services.full}style="display:none"{/if}>
                  {foreach from=$services item=o}
                  <h4><input type="checkbox" class="privilege " id="smain_{$o.id}" onclick="cUnc(this,'s{$o.id}')" /> <span for="smain_{$o.id}">{$o.catname} - {$o.name} {if $o.domain}<em>( {$o.domain} )</em>{/if}</span></h4>
@@ -220,23 +183,23 @@ Add and/or edit contact
             }
             $.post('?cmd=profiles&action=loadpremade',{premade:val},function(response){
                 if(response.all) {
-                    $('.privilege').attr('checked','checked'); return;
+                    $('.privilege').attr('checked','checked').change(); return;
                 }
                 if(response.billing) {
                     if(response.billing.all) {
-                        $('.billing').attr('checked','checked');
+                        $('.billing').attr('checked','checked').change();
                     }
                 }if(response.domains) {
                     if(response.domains.all) {
-                        $('.domains').attr('checked','checked');
+                        $('.domains').attr('checked','checked').change();
                     }
                 }if(response.services) {
                     if(response.services.all) {
-                        $('.services').attr('checked','checked');
+                        $('.services').attr('checked','checked').change();
                     }
                 }if(response.support) {
                     if(response.support.all) {
-                        $('.support').attr('checked','checked');
+                        $('.support').attr('checked','checked').change();
                     }
                 }
             });
