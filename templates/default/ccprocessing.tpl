@@ -1,7 +1,33 @@
 {if $ccprocessed}
 
 {else}
- <form action='' method='post' onsubmit="$('#ccpcontent').addLoader()">
+{if $is3dsecure}
+        <script type="text/javascript" src="{$common_template_dir}facebox/facebox.js"></script>
+        <link media="all" type="text/css" rel="stylesheet" href="{$common_template_dir}facebox/facebox.css" />
+        {literal}<script>
+            function rebindform() {
+                $('#preloader','#ccpcontent').hide();
+            }
+            function redirectform() {
+                window.location='{/literal}{$system_url}?cmd=clientarea&action=invoices{literal}';
+            }
+             function ccsubmit(form) {
+                $('#ccpcontent').addLoader();
+                $(form).attr('target','faceboxiframe');
+                  $.facebox({iframe:'{/literal}{$system_url}?cmd=clientarea&action=emptyframe{literal}'});
+                return true;
+            }
+        </script>{/literal}
+        {else}
+{literal}
+        <script>
+            function ccsubmit() {
+                $('#ccpcontent').addLoader();
+                return true;
+            }
+        </script>{/literal}
+{/if}
+ <form action='' method='post' onsubmit="ccsubmit(this)">
     <input type="hidden" name="invoice_id" value="{$invoice_id}" />
     <input type="hidden" name="payment_module" value="{$payment_module}" />
 	<input type="hidden" name="client[client_id]" value="{$cadetails.id}" />

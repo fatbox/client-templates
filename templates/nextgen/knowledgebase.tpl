@@ -4,7 +4,7 @@
 
     {if $article}
 
-    <h2>{$article.title|capitalize}</h2>
+    <h2>{$article.title|ucfirst}</h2>
     <div class="brcrm">
         <ul class="breadcrumb left">
             <li><a href="{$ca_url}knowledgebase/">{$lang.knowledgebase|capitalize}</a> <span class="divider">/</span></li>

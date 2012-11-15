@@ -15,7 +15,7 @@
             <ul class="dropdown-menu">
 
                 <li><a href="{$ca_url}clientarea/{$action}/{$service.slug}/{$service.id}/">{$lang.servicemanagement}</a></li>
-                <li><a href="{$ca_url}clientarea/{$action}/{$service.slug}/{$service.id}/">{$lang.cancelrequest}</a></li>
+                <li><a href="{$ca_url}clientarea/{$action}/{$service.slug}/{$service.id}/&cancel">{$lang.cancelrequest}</a></li>
 
             </ul>
         </div>

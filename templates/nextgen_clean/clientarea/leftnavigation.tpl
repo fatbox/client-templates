@@ -27,8 +27,8 @@
 <div class="box-feature{if $cmd=='profiles'} active{/if}"><a href="{$ca_url}profiles/"><span class="iconfont-add-user iconfont-size4 silver" style=""></span></a>
     <h4>{$lang.profiles}</h4>
 </div>
-
+{if $enableFeatures.security=='on'}
 <div class="box-feature{if $action=='ipaccess'} active{/if}"><a href="{$ca_url}clientarea/ipaccess/"><span class="iconfont-cloud-upload iconfont-size4 silver" style=""></span></a>
     <h4>{$lang.ipaccess}</h4>
 </div>
-
+{/if}

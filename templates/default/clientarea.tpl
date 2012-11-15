@@ -11,8 +11,12 @@
 
             {if $clientdata.contact_id}<li {if $action=='profilepassword'}class="bgon2"{else}class="bgoff2"{/if} ><a href="{$ca_url}clientarea/profilepassword/">{$lang.changemypass}</a>{/if}
 
-	{if $enableCCards}<li {if $action=='ccard'}class="bgon2"{else}class="bgoff2"{/if} ><a href="{$ca_url}clientarea/ccard/">{$lang.ccard}</a></li>{/if}
-			<li {if $action=='ipaccess'}class="bgon2"{else}class="bgoff2"{/if} ><a href="{$ca_url}clientarea/ipaccess/">{$lang.ipaccess}</a></li>
+            {if $enableCCards}
+                <li {if $action=='ccard'}class="bgon2"{else}class="bgoff2"{/if} ><a href="{$ca_url}clientarea/ccard/">{$lang.ccard}</a></li>
+            {/if}
+            {if $enableFeatures.security=='on'}
+                <li {if $action=='ipaccess'}class="bgon2"{else}class="bgoff2"{/if} ><a href="{$ca_url}clientarea/ipaccess/">{$lang.ipaccess}</a></li>
+            {/if}
 
         </ul>
     </div>

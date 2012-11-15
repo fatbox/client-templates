@@ -157,13 +157,13 @@ Clientarea dashboard - summary of owned services, due invoices, opened tickets
                 <a href="{$ca_url}profiles/">{$lang.managecontacts}</a>
                 <small>{$lang.dashboard_phrase_3}</small>
             </li>
-
+            {if $enableFeatures.security=='on'}
             <li>
                 <i class="icon-lock"></i>
                 <a href="{$ca_url}clientarea/ipaccess/">{$lang.ipaccess}</a>
                 <small>{$lang.dashboard_phrase_4}</small>
             </li>
-
+            {/if}
             {if $enableFeatures.kb!='off'}<li>
                 <i class="icon-book"></i>
                 <a href="{$ca_url}knowledgebase/">{$lang.knowledgebase}</a>
