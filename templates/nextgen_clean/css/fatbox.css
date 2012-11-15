@@ -168,3 +168,10 @@ body #wrapper #content-cloud .header-bar {
 body #wrapper #content-cloud .content-bar {
     border-color: #c8c8c8;
 }
+
+/*
+ * Make labels align better
+ */
+body #wrapper span.label {
+    vertical-align: inherit !important;
+}
