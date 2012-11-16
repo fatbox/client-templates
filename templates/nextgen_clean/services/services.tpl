@@ -61,6 +61,7 @@
             {/if}
         </td><td align="right">
             <div class="clear"></div>
+            {if $totalpages}
             <div class="right p19 pt0">
                 <div class="pagelabel left ">{$lang.page}</div>
                 <div class="btn-group right" data-toggle="buttons-radio" id="pageswitch">
@@ -72,6 +73,7 @@
 
 
             </div>
+            {/if}
             <div class="clear"></div>
         </td></tr>
 </table> 

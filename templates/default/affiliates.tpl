@@ -42,7 +42,7 @@
             <div>
                 <div class="left">
                     <h3>{$lang.intcodes}</h3>
-                    <textarea id="codetext" readonly="readonly" style="height: 80px; margin: 20px; width: 300px;">{$integration_code}</textarea>
+                    <textarea id="codetext" readonly="readonly" style="height: 80px; margin: 20px; width: 300px;">{$integration_code|escape}</textarea>
                 </div>
 
                 <div class="right">
@@ -123,6 +123,7 @@
                         <th>{$lang.discount}</th>
                         <th>{$lang.margin}</th>
                         <th>{$lang.used}</th>
+                        {if 'config:AffVAudience:1'|checkcondition}<th>{$lang.audience}</th>{/if}
                         <th>{$lang.expires}</th>  
                         <th></th>
                     </tr>
@@ -136,6 +137,7 @@
                             <td>{if $voucher.type=='Percent'}{$voucher.value}%{else}{$voucher.value|price:$affiliate.currency_id}{/if}</td>
                             <td>{if $voucher.type=='Percent'}{$voucher.margin}%{else}{$voucher.margin|price:$affiliate.currency_id}{/if}</td>
                             <td>{$voucher.num_usage}</td>
+                            {if 'config:AffVAudience:1'|checkcondition}<td>{if $voucher.clients=='new'}{$lang.newcustommers}{elseif $voucher.clients=='existing'}{$lang.existingcustommers}{else}{$lang.allcustommers}{/if}</td>{/if}
                             <td>{if $voucher.expires|dateformat:$date_format}{$voucher.expires|dateformat:$date_format}{else}-{/if}</td>
                             <td><a class="deleteico" onclick="return confirm('{$lang.voucherdelconfirm}')" href="{$ca_url}{$cmd}/{$action}/&make=delete&id={$voucher.id}&security_token={$security_token}"></a></td>
                         </tr>
@@ -225,6 +227,18 @@
                         </select>
                     </td>		
                 </tr>
+                {if 'config:AffVAudience:1'|checkcondition}
+                    <tr class="even">
+                        <td width="160" align="right"><strong>{$lang.appliesto}</strong></td>
+                        <td>
+                            <select class="styled" name="audience">
+                                <option value="new" >{$lang.newcustommers}</option>
+                                <option value="all" >{$lang.allcustommers}</option>
+                                <option value="existing" >{$lang.existingcustommers}</option>
+                            </select>
+                        </td>
+                    </tr>
+                {/if}
                 <tr>
                     <td width="160" align="right"><strong>{$lang.maxusage}</strong></td>
                     <td>

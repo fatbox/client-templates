@@ -1,4 +1,6 @@
-{if ($action=='services'  || $action=='reseller' || $action=='servers' || $action=='accounts') && $services}
+{if $custom_template}
+    {include file=$custom_template}
+{elseif ($action=='services'  || $action=='reseller' || $action=='servers' || $action=='accounts') && $services}
 {foreach from=$services item=service name=foo}
  <tr {if $smarty.foreach.foo.index%2 == 0}class="even"{/if}>
   <td><a href="{$ca_url}clientarea/{$action}/{$service.slug}/{$service.id}/"> {$service.catname} - <strong>{$service.name}</strong> </a>
