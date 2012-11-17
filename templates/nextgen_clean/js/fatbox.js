@@ -1,8 +1,8 @@
 (function($) {
 
     $(document).ready(function() {
-        $('.jeditable').each(function(elem) {
-            var save_url = $(elem).attr('save');
+        $('.jeditable').each(function(index) {
+            var save_url = $(this).attr('save');
             if (!save_url) {
                 alert('jeditable element doesn\'t have a "save" attr!');
                 return;
@@ -14,13 +14,14 @@
                 submit: 'Save',
             };
 
-            if ($(elem).attr('indicator')) {
+            if ($(this).attr('indicator')) {
                 edit_options['indicator'] = '/templates/nextgen_fatbox/img/loading-radar.gif';
             } else {
                 edit_options['indicator'] = 'Saving...';
             }
 
-            $(elem).editable(save_url, edit_options);
+            $(this).editable(save_url, edit_options);
+            $(this).append('<i class="icon-pencil"></i>');
         });
     });
 

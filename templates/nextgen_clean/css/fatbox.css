@@ -175,3 +175,30 @@ body #wrapper #content-cloud .content-bar {
 body #wrapper span.label {
     vertical-align: inherit !important;
 }
+
+/*
+ * Style jeditable elements
+ */
+
+
+/*
+ * Style jeditable elements
+ */
+.jeditable {
+    cursor: pointer;
+}
+.jeditable > i {
+    vertical-align: baseline;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+    filter: alpha(opacity=25);
+    -moz-opacity: 0.25;
+    -khtml-opacity: 0.25;
+    opacity: 0.25;
+}
+.jeditable:hover > i {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+    filter: alpha(opacity=75);
+    -moz-opacity: 0.75;
+    -khtml-opacity: 0.75;
+    opacity: 0.75;
+}
