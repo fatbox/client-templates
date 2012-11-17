@@ -19,6 +19,8 @@
         <script type="text/javascript" src="{$template_dir}js/bootstrap.min.js"></script>
         <script type="text/javascript" src="{$template_dir}js/common.min.js"></script>
         <script type="text/javascript" src="{$template_dir}js/jquery-ui-1.8.2.custom.min.js"></script>
+        <script type="text/javascript" src="{$template_dir}js/jquery.jeditable.mini.js"></script>
+        <script type="text/javascript" src="{$template_dir}js/fatbox.js"></script>
         <script type="text/javascript" src="{$system_url}?cmd=hbchat&amp;action=embed"></script>
         {userheader}
     </head>
