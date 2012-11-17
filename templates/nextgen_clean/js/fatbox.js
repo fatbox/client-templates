@@ -33,6 +33,7 @@
                 submit: 'Save',
                 onedit: del_pencil,
                 onreset: add_pencil,
+                callback: add_pencil,
             };
 
             // if the element contains an 'indicator' element then use
