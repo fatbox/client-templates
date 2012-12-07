@@ -1,18 +1,36 @@
 <div class="bordered-section article">
 
-
-
 {if $action=='default'}
 
 <h2 class="bbottom">{$lang.downloads|capitalize}</h2>
+<div class="p19">
+
+{if $myfiles}
+<div class="divider"></div>
+<h3>{$lang.myfiles_down}</h3>
+<div class="well">
+       {foreach from=$myfiles item=i}
+           <div class="span3 mb15">
+               <h4><a href="{$ca_url}root&amp;action=download&amp;type=downloads&amp;id={$i.id}" class="dw3">{$i.name}</a></h4>
+               {if $i.description!=''}<p>{$i.description}</p>{/if}
+               <center>
+                   <a href="{$ca_url}root&amp;action=download&amp;type=downloads&amp;id={$i.id}" class="btn btn-info"><i class="icon-download-alt icon-white"></i> Download
+               {if $i.size>0}({$i.size} KB){/if}</a>
+               </center>
+           </div>
+        {/foreach}
+        <div class="clear"></div>
+</div>
+{/if}
+
+
 
 {if $categories}
-<div class="p19">
 <h3>{$lang.categories}</h3>
         {foreach from=$categories item=i}
             <h4>
 		    <a href="{$ca_url}downloads/category/{$i.id}/{$i.slug}/" class="folder3"><strong>{$i.name}</strong></a>
-			 <span class="fsize">({$i.files})</span> 
+			 <span class="fsize">({$i.files})</span>
 		</h4>
         {/foreach}
 
@@ -38,10 +56,6 @@
         {/foreach}
         <div class="clear"></div>
 </div>
-
-
-
-
 {/if}
 </div>
 {elseif $action=='category'}
@@ -79,7 +93,7 @@
         {/foreach}
         <div class="clear"></div>
 
-  </div> 
+  </div>
 
 {/if}
 </div>

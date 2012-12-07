@@ -20,6 +20,22 @@
 <strong>{$lang.nothing}</strong>
 {/if}
 
+{if $myfiles}
+
+<div class="wbox">
+<div class="wbox_header">{$lang.myfiles_down}</div>
+<div class="wbox_content" >
+
+{foreach from=$myfiles item=i}
+           <p class="dfile"> <a href="{$ca_url}root&amp;action=download&amp;type=downloads&amp;id={$i.id}" class="dw3"><strong>{$i.name}</strong></a> {if $i.size>0}<span class="fsize">{$i.size} KB</span>{/if}{if $i.description!=''}<br />{$i.description}{/if}</p>
+
+        {/foreach}
+
+
+</div>   </div>
+
+{/if}
+
 {if $popular}
 
 <div class="wbox">
