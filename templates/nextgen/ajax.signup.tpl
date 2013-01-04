@@ -128,11 +128,12 @@
         </td>
     </tr>
 </table>
-<script type="text/javascript" src="{$template_dir}js/chosen.min.js"></script>
+{*<script type="text/javascript" src="{$template_dir}js/chosen.min.js"></script>*}
 {literal}
     <script>
         $(document).ready(function(){
-            $(".chzn-select").chosen();
+            {/literal}{if $cmd=='cart' && $step!=2}{literal}$("#field_country, #state_input, #state_select").change(function(){var e=this;$.post("?cmd=cart&action=regionTax",{country:$("#field_country").val(),state:$("#state_select:visible").length>0?$("#state_select").val():$("#state_input").val()},function(t){if(t==1){$(e).parents("form").append('<input type="hidden" name="autosubmited" value="true" />').submit()}})}){/literal}{/if}{literal}
+            //$(".chzn-select").chosen();
         });
         function singup_image_reload(){
             var d = new Date();    

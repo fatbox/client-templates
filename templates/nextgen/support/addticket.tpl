@@ -33,9 +33,16 @@
 
                         </select>
                         <div class="deptsdesc" >
-				  	{foreach from=$depts item=dept name=fff}
-                            <div id="d{$dept.id}" {if $submit.dept_id && $submit.dept_id==$dept.id} style="display:block" {elseif $smarty.foreach.fff.first}  style="display:block"  {/if}>{$dept.description}</div>
-				  {/foreach}
+                        {foreach from=$depts item=dept name=fff}
+                            <div class="dept_{$dept.id}" {if $submit.dept_id && $submit.dept_id==$dept.id} style="display:block" {elseif $smarty.foreach.fff.first}  style="display:block" {else} style="display:none"  {/if}>{$dept.description}</div>
+                        {/foreach}
+                        {foreach from=$depts item=dept name=fff}
+                            {if $depts_avg[$dept.id]}
+                            <div class="dept_{$dept.id}" {if $submit.dept_id && $submit.dept_id==$dept.id} style="display:block" {elseif $smarty.foreach.fff.first}  style="display:block" {else} style="display:none" {/if}>
+                                {$lang.deptavgresponsetime} {$depts_avg[$dept.id]|convert:'second'}
+                            </div>
+                            {/if}
+                        {/foreach}
                         </div>
                     <div class="clear"></div>
                     </td>
@@ -159,7 +166,7 @@
     function switchdeptdesc(items) {
 
         $('.deptsdesc').find('div').hide();
-        $('#d'+items).show();
+        $('.dept_'+items).show();
         $('.dptpriority').hide().find('select').attr('disabled','disabled');
         $('#p'+items).show().find('select').removeAttr('disabled');
     }

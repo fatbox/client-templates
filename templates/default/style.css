@@ -276,9 +276,11 @@ a:hover {
 .clear {
     clear:both;
 }
+.deptsdesc{
+    padding:5px;
+}
 .deptsdesc div {
     display:none;
-    padding:5px;
 }
 
 #contener {
