@@ -44,7 +44,7 @@
 	#invoice-content {
 		width:749px;
 		padding:5px;
-		background:url({/literal}{$template_dir}{literal}images/invoice_rep.gif) repeat-y top left;
+		background:url({/literal}{$template_dir}{literal}img/invoice_rep.gif) repeat-y top left;
 		position:relative;
 
 	}
@@ -54,7 +54,7 @@
 		top:0px;
 		left:0px;
 		height:10px;
-		background:url({/literal}{$template_dir}{literal}images/invoice_top.gif) no-repeat top left;
+		background:url({/literal}{$template_dir}{literal}img/invoice_top.gif) no-repeat top left;
 	}
 	#invoice-bottom {
 		width:759px;
@@ -62,7 +62,7 @@
 		bottom:0px;
 		left:0px;
 		height:10px;
-		background:url({/literal}{$template_dir}{literal}images/invoice_bottom.gif) no-repeat top left;
+		background:url({/literal}{$template_dir}{literal}img/invoice_bottom.gif) no-repeat top left;
 	}
 	#invoice-status {
 		bacground-position:top left;
@@ -233,9 +233,10 @@
 		padding-right:0px;
 		width:650px !important;
 	}
+    /*
 	#invoice-status {
-	background-image:url({/literal}{$template_dir}images/invoice_{$estimate.status}_{$language}{literal}.gif);
-	}
+        background-image:url({/literal}{$template_dir}img/invoice_{$estimate.status}_{$language}{literal}.gif);
+	}*/
 	#gateway {
 		display:none;
 	}
@@ -272,11 +273,11 @@
 
 		<div id="invoice-bottom"></div>
 		<div id="invoice-icons">
-			<a href="#" onclick="window.print();"><img src="{$template_dir}images/invoice_print.gif" /></a>
-			<a href="{$ca_url}root&amp;action=download&amp;estimate={$estimate.hash}" onclick=""><img src="{$template_dir}images/invoice_pdf.gif" /></a>
+			<a href="#" onclick="window.print();"><img src="{$template_dir}img/invoice_print.gif" /></a>
+			<a href="{$ca_url}root&amp;action=download&amp;estimate={$estimate.hash}" onclick=""><img src="{$template_dir}img/invoice_pdf.gif" /></a>
 
 		</div>
-		<div id="invoice-status" style="background-image:url({$template_dir}images/estimate_{$estimate.status}_{$language}.gif);width:auto;">{if $company_image}<img src="{$system_url}{$company_image}" alt="{$business_name}" style="width: 200px; height: 50px;" />{else}{$business_name}{/if} <div style="float: right;  padding-left: 5px;"><strong>{$lang.customerquote}</strong></div></div>
+		<div id="invoice-status" style="{*background-image:url({$template_dir}img/estimate_{$estimate.status}_{$language}.gif);*}width:auto;">{if $company_image}<img src="{$system_url}{$company_image}" alt="{$business_name}" style="width: 200px; height: 50px;" />{else}{$business_name}{/if} <div style="float: right;  padding-left: 5px;"><strong>{$lang.customerquote}</strong></div></div>
 		
 		<div id="invoice-body" >
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">
