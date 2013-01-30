@@ -142,6 +142,10 @@
                 margin: 20px auto 0 auto;
                 padding: 10px 20px;
             }
+            #invoice-container {
+                margin: 20px auto;
+                width: 959px;
+            }
 
         </style>
 
@@ -296,6 +300,14 @@
 
                 </div>
             </div>
+            <div class="right" id="payform-container">
+                <div id="paymenu">
+                    <a href="#" onclick="window.print();" class="pelem"><i class="icon-print"></i> {$lang.print_invoice}</a>
+                    <a href="{$ca_url}&amp;action=download&amp;estimate={$estimate.hash}" class="pelem"><i class="icon-download-alt"></i> {$lang.download_pdf}</a>
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
         </div>
     </body>
 </html>

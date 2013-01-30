@@ -33,6 +33,7 @@
                         <th>{$lang.discount}</th>
                         <th>{$lang.margin}</th>
                         <th>{$lang.used}</th>
+                        {if 'config:AffVAudience:1'|checkcondition}<th>{$lang.audience}</th>{/if}
                         <th>{$lang.expires}</th>
                         <th style="width:30px;"></th>
                     </tr>
@@ -46,6 +47,7 @@
                             <td>{if $voucher.type=='Percent'}{$voucher.value}%{else}{$voucher.value|price:$affiliate.currency_id}{/if}</td>
                             <td>{if $voucher.type=='Percent'}{$voucher.margin}%{else}{$voucher.margin|price:$affiliate.currency_id}{/if}</td>
                             <td>{$voucher.num_usage}</td>
+                            {if 'config:AffVAudience:1'|checkcondition}<td>{if $voucher.clients=='new'}{$lang.newcustommers}{elseif $voucher.clients=='existing'}{$lang.existingcustommers}{else}{$lang.allcustommers}{/if}</td>{/if}
                             <td>{if $voucher.expires|dateformat:$date_format}{$voucher.expires|dateformat:$date_format}{else}-{/if}</td>
                             <td><a class="btn btn-mini" onclick="return confirm('{$lang.voucherdelconfirm}')" href="{$ca_url}{$cmd}/{$action}/&make=delete&id={$voucher.id}&security_token={$security_token}"><i class="icon-trash"></i></a></td>
                         </tr>

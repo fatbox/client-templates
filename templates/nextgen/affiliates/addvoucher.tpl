@@ -64,6 +64,18 @@
                 </select>
             </td>
         </tr>
+        {if 'config:AffVAudience:1'|checkcondition}
+            <tr class="even">
+                <td width="160" align="right"><strong>{$lang.appliesto}</strong></td>
+                <td>
+                    <select class="styled" name="audience">
+                        <option value="new" >{$lang.newcustommers}</option>
+                        <option value="all" >{$lang.allcustommers}</option>
+                        <option value="existing" >{$lang.existingcustommers}</option>
+                    </select>
+                </td>
+            </tr>
+        {/if}
         <tr>
             <td width="160" align="right"><strong>{$lang.maxusage}</strong></td>
             <td>

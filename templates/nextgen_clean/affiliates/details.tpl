@@ -50,7 +50,7 @@
 <div class="row">
     <div class="span6">
         <h3>{$lang.intcodes}</h3>
-        <pre class="prettyprint linenums">{$integration_code}</pre>
+        <pre class="prettyprint linenums">{$integration_code|escape}</pre>
         </div>
     <div class="span6">
         
